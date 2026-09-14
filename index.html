@@ -1,0 +1,2162 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Личный сайт Ксении — SEO-тимлид по профессии, инженер по образованию. Обо мне, работа, музыка, игры.">
+<title>Ксения · обо мне, работа, музыка, игры</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600;1,700&family=Oswald:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+:root{
+	--black:#0E428E;
+	--deep:#082c67;
+	--cream:#F1E1F9;
+	--acid:#ACA9E6;
+	--electric:#6A74D4;
+	--violet:#6A74D4;
+	--line:rgba(241,225,249,.3);
+	--serif:Georgia,"Times New Roman",serif;
+	--sans:Montserrat,"Arial",sans-serif;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--black)}
+body{margin:0;color:var(--cream);background:var(--black);font-family:var(--sans);line-height:1.45}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+
+/* ---------- Верхняя панель ---------- */
+.topbar{
+	position:absolute;
+	z-index:10;
+	top:24px;
+	left:50%;
+	transform:translateX(-50%);
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+	width:min(1320px,calc(100% - 48px));
+	font-size:.72rem;
+	letter-spacing:.13em;
+	text-transform:uppercase;
+}
+.mark{color:var(--acid);font-weight:700}
+.nav{display:flex;gap:24px;color:rgba(241,225,249,.7)}
+.nav a{transition:color .3s ease}
+.nav a:hover{color:var(--acid)}
+
+h1,h2,h3{margin:0;font-family:var(--sans);font-weight:700}
+.sec-index{color:var(--acid);font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+.section-index{color:var(--violet);font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.pull{margin:0;font-style:italic;font-weight:700;color:var(--acid);font-size:clamp(1.1rem,2.4vw,1.9rem);line-height:1.1}
+
+/* ---------- курсор-глаз ---------- */
+.cursor{position:fixed;left:0;top:0;z-index:9999;pointer-events:none;transform:translate(-50%,-50%);will-change:transform}
+.cursor i{display:block;width:30px;height:30px;border:1.5px solid var(--cream);border-radius:50%;box-shadow:0 0 14px rgba(241,225,249,.35);transition:width .22s ease,height .22s ease,background .22s,border-color .22s}
+.cursor b{position:absolute;left:50%;top:50%;width:4px;height:4px;background:var(--cream);border-radius:50%;transform:translate(-50%,-50%);transition:opacity .2s}
+body.c-link .cursor i{width:10px;height:10px;background:var(--cream)}
+body.c-media .cursor i{width:88px;height:88px;border-color:rgba(241,225,249,.45);box-shadow:0 0 34px rgba(241,225,249,.14)}
+body.c-media .cursor b{opacity:0}
+body.has-cursor,body.has-cursor a,body.has-cursor button{cursor:none}
+html:not(.has-cursor) .cursor{display:none}
+@media(hover:none){.cursor{display:none!important}}
+
+/* ---------- лунный индикатор прокрутки ---------- */
+.moondial{position:fixed;right:26px;bottom:26px;z-index:40;width:46px;height:46px;border-radius:50%;overflow:hidden;pointer-events:none;box-shadow:0 0 0 1px rgba(241,225,249,.22),0 10px 34px rgba(8,44,103,.55)}
+.moondial img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(110px,18vh,160px) max(24px,7vw) 54px;overflow:hidden;background:var(--deep);isolation:isolate}
+.hero__bg{position:absolute;inset:0;z-index:-3;overflow:hidden}
+.hero__bg video{width:100%;height:100%;object-fit:cover;object-position:50% 34%;transform:scale(1.08);filter:brightness(.5) saturate(.86) blur(6px)}
+.hero__grad{position:absolute;inset:0;z-index:-2;background:linear-gradient(95deg,rgba(8,30,75,.92),rgba(8,30,75,.42) 54%,rgba(8,30,75,.12)),linear-gradient(0deg,rgba(5,10,25,.72),transparent 44%)}
+.hero__inner{position:relative;z-index:1;max-width:min(72vw,940px)}
+.hero__kicker{margin:0 0 18px;min-height:1.1em;color:var(--acid);font-size:.8rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase}
+.hero h1{margin:0}
+.hero__title{position:relative;display:block;margin:-2vh 0 0 -1vw}
+.hero__mark{display:block;width:min(92vw,1000px);height:auto;overflow:visible;filter:drop-shadow(0 14px 54px rgba(172,169,230,.5))}
+.hero__mark .m-fill{fill:var(--cream)}
+.hero__mark .m-slash{fill:#fbf6ff}
+.hero__mark .m-spark{fill:var(--acid)}
+.hero__mark .m-moon{fill:var(--acid)}
+.visually-hidden{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.hero__sig{display:flex;align-items:center;gap:13px;margin-top:20px;color:var(--acid);font-size:.72rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase}
+.hero__sig::before{content:"";width:clamp(90px,16vw,190px);height:1px;background:linear-gradient(90deg,var(--acid),transparent)}
+.hero__copy{max-width:460px;margin-top:26px;font-size:clamp(1rem,1.5vw,1.2rem);color:rgba(241,225,249,.9)}
+.hero__note{position:relative;z-index:1;display:flex;align-items:center;gap:14px;color:rgba(241,225,249,.62);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase}
+.hero__note::before{content:"";width:52px;height:1px;background:var(--acid)}
+.crescent{position:absolute;top:7%;right:8%;width:104px;height:104px;border-radius:50%;background:var(--deep);z-index:1;filter:drop-shadow(0 0 34px rgba(172,169,230,.45));
+	-webkit-mask:radial-gradient(circle at 64% 40%,transparent 0 49%,#000 51%);mask:radial-gradient(circle at 64% 40%,transparent 0 49%,#000 51%)}
+.spark{position:absolute;color:var(--acid);font-size:2rem;line-height:1;z-index:1}
+.spark::after{content:"✦"}
+.spark.one{top:64%;left:30%;font-size:1.5rem;opacity:.75}
+
+/* ============ POSTER / ZINE MODE — макет первого экрана ============ */
+.poster-mode{--paper:#e8e4da;--ink:#101014;--lav:#8f88cf}
+.poster-mode .topbar .mark{color:var(--ink);font-family:"IBM Plex Mono",monospace;letter-spacing:.24em}
+.poster-mode .topbar .nav{color:var(--ink);font-family:"IBM Plex Mono",monospace;letter-spacing:.12em}
+.poster-mode .topbar .nav a:hover{color:var(--lav)}
+.poster-mode .moondial{display:none}
+
+.hero--poster{background:var(--paper);color:var(--ink);font-family:"IBM Plex Mono","Courier New",monospace;min-height:100svh;position:relative;overflow:hidden;padding:0;isolation:isolate}
+.hero--poster .grain{position:absolute;inset:0;z-index:6;pointer-events:none;mix-blend-mode:multiply;opacity:.5;
+	background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:150px 150px}
+.hero--poster .halftone{position:absolute;inset:0;z-index:5;pointer-events:none;mix-blend-mode:multiply;opacity:.2;
+	background-image:radial-gradient(var(--ink) 34%,transparent 37%);background-size:6px 6px}
+
+.hero--poster .p-frame{position:absolute;inset:16px;border:1px solid var(--ink);z-index:4;pointer-events:none}
+.hero--poster .p-reg{position:absolute;width:26px;height:26px;z-index:4;pointer-events:none}
+.hero--poster .p-reg::before,.hero--poster .p-reg::after{content:"";position:absolute;background:var(--ink)}
+.hero--poster .p-reg::before{left:50%;top:0;width:1px;height:100%}
+.hero--poster .p-reg::after{top:50%;left:0;height:1px;width:100%}
+.hero--poster .p-reg i{position:absolute;left:50%;top:50%;width:13px;height:13px;border:1px solid var(--ink);border-radius:50%;transform:translate(-50%,-50%);background:var(--paper)}
+.hero--poster .p-reg.tl{left:7px;top:7px}
+.hero--poster .p-reg.tr{right:7px;top:7px}
+.hero--poster .p-reg.bl{left:7px;bottom:7px}
+.hero--poster .p-reg.br{right:7px;bottom:7px}
+
+.hero--poster .p-strip{position:absolute;left:36px;right:36px;z-index:4;display:flex;justify-content:space-between;align-items:center;gap:16px;
+	font-size:.6rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase}
+.hero--poster .p-strip.top{top:30px}
+.hero--poster .p-strip.bot{bottom:30px}
+.hero--poster .p-strip .grow{flex:1;height:1px;background:var(--ink);opacity:.4}
+.hero--poster .p-bars{height:24px;width:118px;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 3px,var(--ink) 3px 5px,transparent 5px 6px,var(--ink) 6px 7px,transparent 7px 10px)}
+.hero--poster .p-bars.sm{height:18px;width:84px}
+
+.hero--poster .p-side{position:absolute;top:64px;bottom:64px;right:30px;z-index:4;writing-mode:vertical-rl;text-orientation:mixed;
+	display:flex;align-items:center;justify-content:center;font-size:.6rem;letter-spacing:.5em;text-transform:uppercase;opacity:.7}
+
+.hero--poster .p-window{position:absolute;right:clamp(28px,6vw,86px);top:11%;z-index:3;width:min(22vw,244px);aspect-ratio:3/4;
+	border:1px solid var(--ink);overflow:hidden;margin:0;background:var(--paper);border-radius:46% 46% 3px 3px/24% 24% 3px 3px}
+.hero--poster .p-window video{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(2.6) brightness(1.12)}
+.hero--poster .p-window::after{content:"";position:absolute;inset:0;mix-blend-mode:multiply;opacity:.3;
+	background-image:radial-gradient(var(--ink) 36%,transparent 39%);background-size:5px 5px}
+
+.hero--poster .p-wrap{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;justify-content:flex-end;
+	padding:0 clamp(40px,7vw,120px) clamp(84px,15vh,150px)}
+.hero--poster .p-tag{align-self:flex-start;font-size:.64rem;letter-spacing:.3em;text-transform:uppercase;
+	border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:7px 0;margin:0 0 clamp(14px,3vh,28px)}
+.hero--poster .p-mega{font-family:"Oswald","Arial Narrow",sans-serif;font-weight:700;text-transform:uppercase;
+	font-size:clamp(4.2rem,20vw,16rem);line-height:.82;letter-spacing:.005em;margin:0;transform:scaleY(1.08);transform-origin:left bottom;color:var(--ink)}
+.hero--poster .p-sub{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-weight:600;
+	font-size:clamp(1.05rem,2.7vw,2.1rem);margin:clamp(18px,3.2vh,30px) 0 0}
+.hero--poster .p-specs{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:clamp(18px,3.4vh,32px)}
+.hero--poster .p-badge{border:1.4px solid var(--ink);padding:4px 9px;font-size:.58rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase}
+.hero--poster .p-badge.fill{background:var(--ink);color:var(--paper)}
+.hero--poster .p-badge.lav{background:var(--lav);border-color:var(--lav);color:var(--paper)}
+.hero--poster .p-badge.red{background:var(--blood);border-color:var(--blood);color:var(--paper)}
+.hero--poster .p-ret{font-size:1rem;line-height:1}
+.hero--poster .p-ret.lav{color:var(--lav)}
+.hero--poster a:hover,.hero--poster .p-badge:hover{background:var(--ink);color:var(--paper)}
+
+@media(max-width:820px){
+	.hero--poster .p-window,.hero--poster .p-side{display:none}
+	.hero--poster .p-wrap{padding:0 22px 90px}
+	.hero--poster .p-mega{font-size:clamp(3.4rem,22vw,7rem)}
+	.hero--poster .p-strip{left:26px;right:26px}
+}
+
+/* ---------- 01 / обо мне ---------- */
+.about{position:relative;min-height:250vh;background:linear-gradient(180deg,var(--electric),var(--black) 60%);color:var(--cream)}
+.about__sticky{position:sticky;top:0;height:100svh;overflow:hidden;padding:clamp(84px,13vh,112px) max(24px,7vw) 64px;display:flex;flex-direction:column}
+.about__head{max-width:560px;flex:none}
+.about__head h2{margin-top:14px;font-size:clamp(2rem,5vw,4.4rem);line-height:.92;letter-spacing:-.04em}
+.about__bio{max-width:440px;margin:18px 0 0;font-size:clamp(.98rem,1.4vw,1.15rem);color:rgba(241,225,249,.9)}
+.about__strip{position:relative;margin-top:auto;display:flex;align-items:flex-end;gap:26px;width:max-content;will-change:transform}
+.about__frame{position:relative;flex:none;height:min(42vh,344px);aspect-ratio:4/5;border-radius:10px 34px 10px 34px;overflow:hidden;background:#241f3a}
+.about__frame img{width:100%;height:100%;object-fit:cover;filter:contrast(1.05) saturate(1.05)}
+.about__frame figcaption{position:absolute;left:16px;bottom:14px;right:16px;font-style:italic;font-weight:700;font-size:clamp(1rem,1.7vw,1.35rem);text-shadow:0 2px 14px rgba(8,20,50,.7)}
+.about__frame::after{content:"✦";position:absolute;right:12px;top:8px;color:var(--cream);font-size:1.1rem;opacity:.85}
+
+/* ---------- 01 / обо мне ---------- */
+.about-simple{position:relative}
+.as-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,70px);align-items:center;padding:clamp(90px,14vh,150px) max(24px,7vw) 50px}
+.as-text{opacity:1}
+.as-text.wipe{animation:asTextIn .8s cubic-bezier(.2,.8,.2,1) both}
+@keyframes asTextIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.as-text h2{margin-top:14px;font-size:clamp(2.2rem,5.6vw,4.6rem);line-height:.96;letter-spacing:-.03em}
+.as-bio{max-width:440px;margin:20px 0 0;font-size:clamp(.95rem,1.4vw,1.1rem)}
+/* смена кадров в галерее идёт тем же «сканом», что открывает фото в первый раз, – печатная/сканерная тема, не просто плавное затухание */
+.as-photo{position:relative;margin:0;aspect-ratio:4/3;overflow:hidden}
+.as-photo__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;clip-path:inset(0 0 100% 0)}
+.as-photo__img.is-shown{clip-path:inset(0 0 0% 0)}
+.as-photo__img.wiping{z-index:2;animation:asWipe 1.1s cubic-bezier(.65,0,.12,1) both}
+@keyframes asWipe{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0% 0)}}
+.as-photo::before{content:"";position:absolute;left:0;right:0;top:100%;height:3px;z-index:3;pointer-events:none;opacity:0}
+.as-photo.wipe::before{animation:asWipeLine 1.1s cubic-bezier(.65,0,.12,1) both}
+@keyframes asWipeLine{0%{top:0;opacity:1}99%{opacity:1}100%{top:100%;opacity:0}}
+.as-seam{position:relative;display:flex;align-items:center;gap:16px;margin:0 16px;padding:13px clamp(24px,5vw,80px) clamp(50px,8vh,90px);
+	font-size:.6rem;letter-spacing:.24em;text-transform:uppercase}
+.as-seam__rule{flex:1;height:1px}
+
+/* ---------- 02 / работа ---------- */
+.work{position:relative;padding:clamp(90px,13vh,150px) max(24px,7vw);background:linear-gradient(160deg,var(--black),var(--deep));color:var(--cream)}
+.work__head{max-width:760px;margin-bottom:54px}
+.work__head h2{margin-top:14px;font-size:clamp(2.2rem,6vw,5.5rem);line-height:.9;letter-spacing:-.04em}
+.work__head p{max-width:520px;margin:18px 0 0;color:rgba(241,225,249,.8)}
+.work__rows{display:flex;flex-direction:column}
+.wrow{position:relative;border-top:1px solid rgba(241,225,249,.16)}
+.wrow:last-child{border-bottom:1px solid rgba(241,225,249,.16)}
+.wrow__head{all:unset;box-sizing:border-box;display:grid;grid-template-columns:2.6em 1fr auto 1.4em;gap:20px;align-items:baseline;
+	width:100%;padding:22px 0;cursor:pointer}
+.wrow__num{font-size:.75rem;color:var(--acid)}
+.wrow h3{font-size:clamp(1.2rem,2.4vw,1.8rem);letter-spacing:-.02em;transition:color .3s ease;margin:0}
+.wrow p{margin:6px 0 0;max-width:480px;color:rgba(241,225,249,.72);font-size:.9rem}
+.wrow__tag{text-align:right;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(241,225,249,.55)}
+.wrow__plus{font-size:1.1rem;text-align:center;color:rgba(241,225,249,.55);transition:transform .3s ease,color .3s ease}
+.wrow[data-open="true"] .wrow__plus{transform:rotate(45deg);color:var(--acid)}
+.wrow:hover h3{color:var(--acid)}
+.wrow__panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s cubic-bezier(.2,.8,.2,1)}
+.wrow__panel-in{overflow:hidden;padding-left:calc(2.6em + 20px)}
+.wrow[data-open="true"] .wrow__panel{grid-template-rows:1fr}
+.wrow__stamp{display:inline-block;margin:2px 0 12px;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;
+	border:1px solid currentColor;padding:3px 9px;transform:rotate(-2deg)}
+.wrow__list{margin:0 0 24px;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px;font-size:.85rem;color:rgba(241,225,249,.72)}
+.wrow__list li{position:relative;padding-left:1.15em}
+.wrow__list li::before{content:"\2013";position:absolute;left:0}
+.wrow__odds{display:flex;flex-wrap:wrap;justify-content:center;gap:28px 40px;margin:2px 0 24px}
+.wrow__odd{display:flex;flex-direction:column;gap:6px;max-width:200px}
+.wrow__odd b{font-size:clamp(2rem,4vw,2.8rem);font-weight:700;line-height:1;letter-spacing:-.02em;color:var(--acid);font-variant-numeric:tabular-nums}
+.wrow__odd span{font-size:.76rem;line-height:1.35;color:rgba(241,225,249,.68)}
+.work__tags{margin-top:34px;font-size:.78rem;letter-spacing:.04em;color:rgba(241,225,249,.6)}
+.work__note{margin-top:26px;font-size:.8rem;color:rgba(241,225,249,.5)}
+
+.work__exhibits{margin-top:44px}
+.wex-label{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(241,225,249,.5);margin:0 0 14px}
+.wex-row{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:none;cursor:grab}
+.wex-row.is-dragging{cursor:grabbing;scroll-snap-type:none;user-select:none}
+.wex-row.is-dragging .wex{pointer-events:none}
+.wex-row::-webkit-scrollbar{display:none;height:0}
+.wex{position:relative;flex:none;width:min(46vw,220px);aspect-ratio:4/3;margin:0;scroll-snap-align:start;overflow:hidden}
+.wex__ph{display:block;width:100%;height:100%;background:repeating-linear-gradient(45deg,rgba(241,225,249,.14) 0 1px,transparent 1px 9px);border:1px solid rgba(241,225,249,.2)}
+/* чертежи – настоящие сканы на белом фоне, contain (не cover), чтобы линии и цифры не обрезались */
+.wex__img{display:block;width:100%;height:100%;background-color:#f1e1f9;background-size:contain;background-repeat:no-repeat;background-position:center;border:1px solid rgba(241,225,249,.2)}
+.wex figcaption{position:absolute;left:9px;bottom:8px;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(241,225,249,.55)}
+
+/* ---------- 03 / музыка ---------- */
+.music{
+	position:relative;
+	min-height:280vh;
+	background:linear-gradient(145deg,#0E428E 0%,#5566c8 35%,#6A74D4 62%,#ACA9E6 100%);
+	color:var(--cream);
+}
+.music-sticky{
+	position:sticky;
+	top:0;
+	display:flex;
+	flex-direction:column;
+	justify-content:flex-start;   /* фиксированное место карточки, не зависит от фазы входа; на низких окнах подтягивается вверх */
+	height:100svh;
+	padding:clamp(150px,24vh,206px) max(24px,7vw) 24px;
+	overflow:hidden;
+}
+.music-head{position:absolute;top:3vh;left:max(24px,7vw);z-index:2}
+.music-head h2{margin-top:18px;font-size:clamp(2rem,4.4vw,4rem);line-height:.9;letter-spacing:-.05em;white-space:nowrap}
+.music-hint{
+	position:absolute;
+	/* одной строкой, сразу под заголовком, по его левому краю */
+	left:max(24px,7vw);
+	top:calc(3vh + 104px);
+	white-space:nowrap;
+	color:rgba(241,225,249,.68);
+	font-size:.72rem;
+	letter-spacing:.16em;
+	text-transform:uppercase;
+}
+.music-track{
+	position:relative;
+	display:flex;
+	align-items:center;
+	gap:20px;
+	width:max-content;
+	margin-top:0;
+	padding-bottom:48px;
+	transform:translateX(0);
+}
+/* обёртка карточки – на неё вешается объёмная анимация (масштаб / наклон / глубина) из скрипта;
+   отдельная от .music-clean-card, потому что у карточки маска, которая обрезала бы звезду в углу */
+.music-card-wrap{
+	position:relative;
+	flex-shrink:0;
+	transform-origin:center center;
+	transition:transform .35s cubic-bezier(.22,.9,.24,1),opacity .35s ease;
+}
+.music-card-wrap.is-active .music-clean-card{box-shadow:0 34px 64px -24px rgba(8,44,103,.65)}
+
+.music-back{position:absolute;left:50%;bottom:26px;transform:translate(-50%,10px);z-index:5;
+	padding:11px 22px;border:1px solid rgba(241,225,249,.4);border-radius:999px;background:rgba(8,30,75,.4);
+	color:var(--cream);font:600 .74rem/1 var(--sans);letter-spacing:.04em;cursor:pointer;
+	opacity:0;pointer-events:none;transition:opacity .4s ease,transform .4s ease}
+.music-back.is-visible{opacity:1;pointer-events:auto;transform:translate(-50%,0)}
+.music-back:hover{background:rgba(8,30,75,.65)}
+/* четырёхконечная звезда в вырезанном углу карточки (та же форма, что .spark и звёзды на кнопке).
+   Крутится и вспыхивает при прокрутке – переход между карточками «проходит» через неё (см. скрипт). */
+.music-card-star{
+	--f:0;            /* близость карточки к фокусу 0..1 – задаётся из скрипта */
+	--spin:0deg;      /* поворот от смещения относительно фокуса – из скрипта */
+	position:absolute;
+	top:-40px;
+	right:-40px;
+	width:104px;      /* базовый размер = размер во вспышке; скрипт только УМЕНЬШАЕТ (scale<=1),
+	                     увеличение растрового битмапа = рваные края, уменьшение – чисто */
+	height:104px;
+	z-index:4;
+	pointer-events:none;
+	transform-origin:center center;
+	transform:rotate(var(--spin)) scale(calc(0.28 + var(--f) * 0.72));
+	opacity:calc(0.3 + var(--f) * 0.7);
+	transition:opacity .2s ease;
+}
+.music-card-star svg{display:block;width:100%;height:100%;position:relative;overflow:visible;shape-rendering:geometricPrecision}
+.music-card-star svg path{fill:var(--cream)}
+/* пульсирующий ореол – разгорается по мере приближения карточки к фокусу, ловит взгляд */
+.music-card-star::before{
+	content:"";
+	position:absolute;
+	inset:-52%;
+	z-index:-1;
+	border-radius:50%;
+	background:radial-gradient(circle,rgba(241,225,249,.5) 0 6%,rgba(241,225,249,.22) 30%,rgba(172,169,230,.1) 55%,transparent 72%);
+	animation:starHalo 1.6s ease-in-out infinite;
+	pointer-events:none;
+}
+@keyframes starHalo{
+	0%,100%{transform:scale(.7);opacity:calc(var(--f) * .3)}
+	50%{transform:scale(1.1);opacity:calc(var(--f) * .7)}
+}
+.music-clean-card{
+	--mc-cover: clamp(260px, 20vw, 420px);
+	--mc-desc: clamp(390px, 44vw, 760px);
+	position:relative;
+	display:grid;
+	grid-template-columns:minmax(200px,var(--mc-cover)) minmax(300px,1fr);
+	grid-template-rows:auto auto;
+	gap:22px 28px;
+	width:min(80vw,1320px);
+	padding:clamp(22px,2.2vw,40px) clamp(28px,2.8vw,50px) clamp(38px,3.6vw,60px);
+	background:linear-gradient(145deg,#0E428E,#6A74D4 58%,#ACA9E6);
+	color:var(--cream);
+	border-radius:22px 78px 22px 78px;
+	overflow:hidden;
+	-webkit-mask-image:radial-gradient(circle at 100% 0,transparent 0 72px,#000 73px);
+	mask-image:radial-gradient(circle at 100% 0,transparent 0 72px,#000 73px);
+}
+.music-clean-card::after{
+	content:"";
+	position:absolute;
+	top:-58px;
+	right:-58px;
+	width:132px;
+	height:132px;
+	background:var(--cream);
+	border-radius:50%;
+	pointer-events:none;
+}
+.music-clean-cover{
+	grid-column:1;
+	grid-row:1;
+	width:var(--mc-cover);
+	height:var(--mc-cover);
+	max-width:var(--mc-cover);
+	aspect-ratio:1;
+	background:url("images/funeral.jpg") center/cover;
+	border-radius:16px;
+}
+.music-clean-info{
+	grid-column:2;
+	grid-row:1;
+	display:flex;
+	flex-direction:column;
+	align-items:flex-start;
+	justify-content:center;
+	gap:10px;
+	min-width:0;
+	height:var(--mc-cover);
+}
+.music-clean-artist{display:flex;align-items:center;gap:13px}
+.music-clean-avatar{
+	width:clamp(52px,4vw,68px);
+	height:clamp(52px,4vw,68px);
+	flex:none;
+	border:3px solid var(--acid);
+	border-radius:50%;
+	background:url("images/kai_angel.jpg") center/cover;
+}
+.music-clean-name{font-size:clamp(1.05rem,1.3vw,1.35rem);font-weight:700;letter-spacing:.01em;color:var(--cream)}
+.music-clean-info small{font-size:clamp(.7rem,.8vw,.85rem);letter-spacing:.12em;text-transform:uppercase;color:rgba(241,225,249,.72)}
+.music-clean-info h3{font-size:clamp(1.8rem,3.2vw,3.4rem);line-height:.95}
+.music-clean-info p{max-width:var(--mc-desc);margin:0;font-size:clamp(.95rem,1.15vw,1.2rem);line-height:1.4;text-align:justify}
+.music-clean-bottom{
+	grid-column:1 / 3;
+	display:grid;
+	/* вторая колонка совпадает по левому краю и ширине с описанием трека (.music-clean-info p, max-width:var(--mc-desc)),
+	   поэтому кнопка с justify-self:center встаёт ровно по центру описания */
+	grid-template-columns:var(--mc-cover) minmax(0,var(--mc-desc));
+	gap:28px;
+	align-items:center;
+	padding-top:24px;
+	border-top:1px solid rgba(241,225,249,.55);
+}
+.music-clean-quote{
+	width:var(--mc-cover);
+	max-width:var(--mc-cover);
+	margin:0;
+	font-style:italic;
+	font-weight:700;
+	font-size:clamp(1rem,1.9vw,1.55rem);
+	line-height:1.15;
+	text-align:center;
+}
+.music-clean-button{
+	position:relative;
+	display:inline-flex;
+	align-items:center;
+	justify-content:center;
+	gap:9px;
+	justify-self:center;
+	align-self:center;
+	width:max-content;
+	max-width:100%;
+	margin-inline:auto;
+	padding:clamp(14px,1.3vw,20px) clamp(30px,2.6vw,40px);
+	border:0;
+	border-radius:14px;
+	background:linear-gradient(135deg,var(--cream),var(--acid));
+	color:var(--deep);
+	font:700 clamp(.8rem,1vw,1.05rem)/1.3 var(--sans);
+	letter-spacing:.02em;
+	text-align:center;
+	cursor:pointer;
+}
+/* треугольник Play – сразу видно, что кнопка запускает трек */
+.mcb-play{
+	flex:none;
+	width:0;
+	height:0;
+	border-style:solid;
+	border-width:6px 0 6px 11px;
+	border-color:transparent transparent transparent currentColor;
+}
+.music-clean-button.is-playing .mcb-play{
+	/* пауза, когда трек уже играет */
+	width:11px;
+	height:13px;
+	border:0;
+	background:linear-gradient(currentColor 0 0) left/3px 100% no-repeat,
+	          linear-gradient(currentColor 0 0) right/3px 100% no-repeat;
+}
+/* четырёхконечные шипы по краям – продолжение самой кнопки: тот же фон, без тени,
+   глубоко заходят под тело кнопки (z-index:-1), наружу торчат только острые кончики */
+.music-clean-button::before,
+.music-clean-button::after{
+	content:"";
+	position:absolute;
+	top:50%;
+	z-index:-1;
+	width:38px;
+	height:38px;
+	transform:translateY(-50%);
+	clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);
+}
+/* цвет кончика = локальный цвет градиента кнопки на этом краю, чтобы шов не читался */
+.music-clean-button::before{left:-13px;background:var(--cream)}
+.music-clean-button::after{right:-13px;background:var(--acid)}
+.music-clean-button.is-playing{opacity:.85}
+
+/* ---------- 04 / игры ---------- */
+.hobby{position:relative;padding:clamp(90px,13vh,150px) max(24px,7vw) clamp(90px,13vh,150px);background:linear-gradient(180deg,var(--black),#241a2e 55%,var(--deep));color:var(--cream)}
+.hobby__head{max-width:760px;margin-bottom:46px}
+.hobby__head h2{margin-top:14px;font-size:clamp(2.2rem,6vw,5.5rem);line-height:.9;letter-spacing:-.04em}
+.hobby__head p{margin:16px 0 0;color:rgba(241,225,249,.75)}
+/* колода игр: одна карточка всегда «большая» (featured), остальные – маленькие обложки.
+   клик по маленькой – делает её большой; клик по большой – раскрывает книжкой (обложка+текст
+   анимированно сжимаются в полосу слева, справа выезжает информация без фоновой картинки) */
+.game-deck{display:flex;flex-wrap:wrap;gap:16px}
+.gd-item{position:relative;overflow:hidden;isolation:isolate;
+	flex:1 1 260px;min-height:270px;border-radius:14px 34px 14px 34px;color:var(--cream);
+	transition:flex-basis .5s cubic-bezier(.2,.8,.2,1),min-height .5s cubic-bezier(.2,.8,.2,1),border-radius .4s ease}
+
+/* обложка+текст – отдельная полоса, всегда абсолютно спозиционирована; в закрытом виде растянута
+   на всю карточку, при раскрытии анимированно сжимается до узкой колонки слева */
+.gd-menu{position:absolute;inset:0;width:100%;display:flex;flex-direction:column;justify-content:flex-end;
+	padding:22px;overflow:hidden;transition:width .5s cubic-bezier(.2,.8,.2,1),padding .4s ease}
+.gd-bg{position:absolute;inset:0;z-index:-2;background-position:center;background-size:cover;filter:saturate(1.1)}
+.gd-grad{position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(8,20,45,.86),rgba(8,20,45,.25) 60%,transparent)}
+.gd-sigil{position:absolute;right:16px;top:14px;font-size:1.4rem;color:var(--cream);opacity:.9;z-index:1}
+.gd-label{position:relative;margin:0 0 6px;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:#c9b9a6;display:none;
+	transition:opacity .22s ease}
+.gd-title{position:relative;margin:0;font-size:1.15rem;line-height:1.05;letter-spacing:-.01em;
+	transition:font-size .5s cubic-bezier(.2,.8,.2,1),line-height .5s cubic-bezier(.2,.8,.2,1),opacity .22s ease}
+.gd-text{position:relative;margin:6px 0 0;font-size:.86rem;color:#fff;max-width:none;
+	text-shadow:0 1px 6px rgba(0,0,0,.6);
+	transition:font-size .5s cubic-bezier(.2,.8,.2,1),max-width .5s cubic-bezier(.2,.8,.2,1),opacity .22s ease}
+/* пока колонка меняет ширину и текст пересчитывает переносы строк – прячем его, чтобы не было видно скачков */
+.gd-menu.is-resizing .gd-label,.gd-menu.is-resizing .gd-title,.gd-menu.is-resizing .gd-text{opacity:0}
+
+/* панель с информацией и галереей – без фото, просто лёгкий градиент; выезжает справа при раскрытии;
+   если контента больше, чем помещается, панель скроллится сама, не вылезая за границы карточки */
+.gd-detail{position:absolute;top:0;bottom:0;left:100%;width:0;opacity:0;overflow-x:hidden;overflow-y:auto;padding:0;
+	scrollbar-width:none;
+	background:linear-gradient(160deg,rgba(40,34,60,.55),rgba(16,14,22,.88));
+	transition:left .5s cubic-bezier(.2,.8,.2,1),width .5s cubic-bezier(.2,.8,.2,1),opacity .35s ease .1s,padding .4s ease}
+.gd-detail::-webkit-scrollbar{display:none}
+
+/* featured – большой экран, раскрывается на месте своей карточки, никуда не переезжая */
+.gd-item.is-featured{flex:1 1 100%;min-height:74vh;border-radius:20px 64px 20px 64px}
+.gd-item.is-featured .gd-menu{padding:clamp(24px,4vw,52px)}
+.gd-item.is-featured .gd-label{display:block}
+.gd-item.is-featured .gd-title{font-size:clamp(2rem,5vw,3.6rem);line-height:.95;letter-spacing:-.03em}
+.gd-item.is-featured .gd-text{max-width:460px;font-size:clamp(.78rem,1vw,.88rem)}
+.gd-item.is-featured .gd-sigil{display:none}
+
+/* раскрыто книжкой – и заголовок/текст в полосе слева уменьшаются, чтобы не резались по краю */
+.gd-item.is-expanded .gd-menu{width:clamp(220px,27%,320px);padding:26px 22px}
+.gd-item.is-expanded .gd-label{font-size:.6rem}
+.gd-item.is-expanded .gd-title{font-size:clamp(1rem,1.6vw,1.3rem)!important;line-height:1.15;letter-spacing:-.01em}
+.gd-item.is-expanded .gd-text{font-size:.74rem;max-width:none}
+.gd-item.is-expanded .gd-detail{left:clamp(220px,27%,320px);width:calc(100% - clamp(220px,27%,320px));opacity:1;padding:clamp(24px,3.6vw,48px)}
+.gd-item.is-expanded .gd-detail--heroes{padding:clamp(8px,1.2vw,16px);display:flex;flex-direction:column;justify-content:center}
+
+/* курсор-«можно нажать» только там, где клик правда что-то делает: по всей карточке, пока она
+   не раскрыта книжкой, и по левому меню (сворачивает обратно) – но не по тексту информации/галереи */
+.gd-item:not(.is-expanded){cursor:pointer}
+.gd-item.is-expanded .gd-menu{cursor:pointer}
+
+/* «информация об игре» / «галерея» – заметные заголовки блоков, отдельно от мелких подписей полей ниже */
+.gd-detail-label{margin:0 0 16px;font-size:clamp(1.1rem,1.8vw,1.5rem);font-weight:700;letter-spacing:0;text-transform:none;color:var(--cream)}
+.gd-detail-label:not(:first-child){margin-top:34px}
+.gd-specs{margin:0;display:flex;flex-direction:column;gap:8px}
+.gd-specs>div{display:flex;justify-content:space-between;gap:16px;padding-bottom:6px;border-bottom:1px dotted rgba(241,225,249,.24)}
+.gd-specs dt{margin:0;color:#c9b9a6;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;opacity:.8}
+.gd-specs dd{margin:0;font-size:.84rem;color:rgba(241,225,249,.92);text-align:right}
+/* компактный вариант – добавлена в карточки, которые изначально были без «информации об игре»;
+   чуть плотнее по вертикальным отступам, чем исходный у SH2, но шрифт того же размера,
+   чтобы не отличаться по вёрстке */
+.gd-specs--compact{gap:4px;flex:none}
+.gd-specs--compact>div{padding-bottom:3px}
+.gd-detail--codex .gd-detail-label:not(:first-child),
+.gd-detail--pixel .gd-detail-label:not(:first-child),
+.gd-detail--heroes .gd-detail-label:not(:first-child){margin-top:14px}
+
+/* дота – не сюжетная игра, поэтому вместо инфо+галереи два любимых героя рядом, портрет+подпись;
+   между ними – волнистая нить с бегущим туда-обратно импульсом (герои "связаны") */
+.gd-heroes{position:relative;display:flex;gap:22px}
+.gd-hero-link{position:absolute;inset:0;pointer-events:none;overflow:visible}
+.gd-hero-link path{fill:none;stroke:rgba(241,225,249,.4);stroke-width:1.4;stroke-dasharray:1 6;stroke-linecap:round}
+/* точка идёт точно по нарисованной линии (offset-anchor:center — без ручных отступов, которые её сбивали)
+   и одновременно пульсирует размером, независимо от скорости движения по нити */
+.gd-hero-pulse{position:absolute;width:7px;height:7px;border-radius:50%;offset-anchor:center;
+	background:var(--cream);box-shadow:0 0 8px rgba(241,225,249,.7);
+	animation:gdHeroPulseMove 4.2s ease-in-out infinite alternate, gdHeroPulseScale 2.6s ease-in-out infinite}
+@keyframes gdHeroPulseMove{from{offset-distance:0%}to{offset-distance:100%}}
+@keyframes gdHeroPulseScale{0%,100%{transform:scale(1)}50%{transform:scale(1.8)}}
+.gd-hero{position:relative;flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;text-align:center}
+/* портрет – ровно в пропорциях самого видео (481:704), чтобы ничего не обрезалось и не появлялось чёрных полос;
+   уже видео = меньше высоты, а освободившееся место занимает удлинённая волна-связь между героями */
+/* размер портрета считаем от vh (той же единицы, что задаёт высоту самого блока), а не от ширины окна –
+   так соотношение «портрет / пустое место» остаётся одинаковым независимо от пропорций окна */
+.gd-hero__portrait{position:relative;overflow:hidden;aspect-ratio:4/5;height:34vh;max-width:92%;width:auto;
+	background:repeating-linear-gradient(45deg,rgba(241,225,249,.18) 0 1px,transparent 1px 9px);
+	border:1px solid rgba(241,225,249,.28);margin-bottom:8px}
+/* кадрируем по пояс – видео снято в полный рост, поднимаем фокус к верхней части кадра,
+   чтобы в укороченной (не во весь рост) рамке оставались лицо и торс, а не ноги */
+.gd-hero__portrait-media{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:center 15%}
+.gd-hero__name,.gd-hero__role,.gd-hero__text{max-width:320px}
+.gd-hero__name{margin:0;font-size:1.1rem;font-weight:700;color:var(--cream)}
+.gd-hero__role{margin:2px 0 6px;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:#c9b9a6}
+.gd-hero__text{margin:0;font-size:.7rem;line-height:1.3;color:rgba(241,225,249,.82)}
+
+/* hades – не как дота: страница кодекса, два персонажа-карточки в комиксовом стиле игры:
+   рваные срезанные углы вместо ровной рамки, экранная штриховка (halftone) и цветной акцент под каждого */
+.gd-item.is-expanded .gd-detail--codex{padding:clamp(14px,2vw,28px);display:flex;flex-direction:column}
+.gd-detail--codex .gd-detail-label{flex:none}
+.gd-codex{display:flex;gap:16px;flex:1;min-height:0}
+/* карточка переворачивается по наведению (3D flip), на обратной стороне – текст про персонажа */
+.gd-codex-wrap{position:relative;flex:1;perspective:1400px}
+.gd-codex-card{position:relative;width:100%;height:100%;transform-style:preserve-3d;
+	transition:transform .6s cubic-bezier(.4,.1,.2,1)}
+.gd-codex-wrap:hover .gd-codex-card,.gd-codex-card.is-flipped{transform:rotateY(180deg)}
+.gd-codex-card__face{position:absolute;inset:0;overflow:hidden;isolation:isolate;backface-visibility:hidden;
+	border:2px solid rgba(241,225,249,.35);
+	clip-path:polygon(6% 0,100% 0,100% 92%,94% 100%,0 100%,0 8%);
+	display:flex;flex-direction:column;justify-content:flex-end;padding:18px}
+.gd-codex-card__face--back{transform:rotateY(180deg);justify-content:center;background:#131019}
+.gd-codex-card__art{position:absolute;inset:0;z-index:-3;background-size:cover;background-position:center top}
+.gd-codex-card__halftone{position:absolute;inset:0;z-index:-2;mix-blend-mode:multiply;opacity:.35;
+	background-image:radial-gradient(currentColor 34%,transparent 37%);background-size:5px 5px}
+.gd-codex-card__scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(8,4,14,.94),rgba(8,4,14,.2) 55%,transparent)}
+.gd-codex-card__name{position:relative;margin:0;font-family:var(--disp);font-weight:700;text-transform:uppercase;
+	font-size:clamp(1.3rem,2.2vw,1.9rem);letter-spacing:.01em;color:var(--cream)}
+.gd-codex-card__quote{position:relative;margin:6px 0 0;font-style:italic;font-size:.78rem;line-height:1.35;
+	color:rgba(241,225,249,.85);max-width:94%}
+.gd-codex-card__bio{position:relative;margin:10px 0 0;font-size:.88rem;line-height:1.55;
+	color:rgba(241,225,249,.9);max-width:94%}
+.gd-codex-card__bio b{color:var(--cream);font-weight:700}
+/* выделенный факт про игровую механику – акцент цветом самого персонажа (currentColor) */
+.gd-codex-card__tag{position:relative;margin:14px 0 0;padding-left:12px;max-width:94%;
+	font-weight:700;font-size:.8rem;line-height:1.4;letter-spacing:.01em;color:currentColor;
+	border-left:3px solid currentColor}
+.gd-codex-card__flip-hint{position:absolute;z-index:2;top:12px;right:14px;width:30px;height:30px;border-radius:50%;
+	display:flex;align-items:center;justify-content:center;font-size:1.05rem;line-height:1;
+	color:var(--cream);background:rgba(10,8,16,.78);border:1px solid rgba(241,225,249,.45);
+	box-shadow:0 1px 6px rgba(0,0,0,.5)}
+.gd-codex-card--nyx{color:#9b8cf0}
+.gd-codex-card--nyx .gd-codex-card__face{border-color:rgba(155,140,240,.55)}
+.gd-codex-card--chaos{color:#e0479b}
+.gd-codex-card--chaos .gd-codex-card__face{border-color:rgba(224,71,155,.55)}
+
+/* stardew – пиксель-арт: рваная ступенчатая («8-bit») рамка вместо скруглённых углов, ретро-шрифт для
+   заголовка блока, и вместо галереи – настоящая интерактивная карта: скрин локации целиком, по которому
+   расставлены точки-метки; клик по точке показывает, что там можно найти/поймать/собрать */
+.gd-item--stardew .gd-bg{clip-path:polygon(0 8px,8px 8px,8px 0,calc(100% - 8px) 0,calc(100% - 8px) 8px,100% 8px,
+	100% calc(100% - 8px),calc(100% - 8px) calc(100% - 8px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 8px),0 calc(100% - 8px))}
+/* официальный логотип игры – прямо на обложке, как на боксарте/капсуле в Steam.
+   img, а не фон-картинка – высота считается из собственных пропорций лого (они у всех разные:
+   у Dota 2 это узкая горизонтальная плашка, у остальных – более квадратный леттеринг) */
+.gd-item .gd-cover-logo{position:absolute;top:clamp(16px,4vh,40px);left:50%;transform:translateX(-50%);
+	width:min(78%,320px);height:auto;
+	filter:drop-shadow(0 6px 16px rgba(0,0,0,.6));pointer-events:none}
+.gd-item.is-expanded .gd-cover-logo{width:min(78%,220px);top:clamp(12px,3vh,28px)}
+/* лого SH2 – тонкие белые линии без заливки, на светлом туманном фоне их почти не видно;
+   вместо одной мягкой тени – несколько наложенных тёмных, чтобы получить обводку-ореол */
+.gd-cover-logo--sh2{width:min(92%,440px);filter:drop-shadow(0 0 3px rgba(0,0,0,.95)) drop-shadow(0 0 7px rgba(0,0,0,.85)) drop-shadow(0 4px 10px rgba(0,0,0,.6))}
+.gd-item.is-expanded .gd-cover-logo--sh2{width:min(92%,270px)}
+.gd-item.is-expanded .gd-detail--pixel{padding:clamp(14px,2vw,28px);display:flex;flex-direction:column}
+.gd-detail--pixel .gd-detail-label{flex:none}
+.gd-specs__genres dd{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:9px 10px;text-align:right}
+/* жанры – не ровные пилюли, а разлохмаченные бумажные бирки под углом, как этикетки в досье */
+.gd-genre{position:relative;font-size:.72rem;line-height:1;padding:7px 13px;border:1px dashed rgba(241,225,249,.4);
+	white-space:nowrap;color:rgba(241,225,249,.88);text-transform:uppercase;letter-spacing:.08em;
+	background:rgba(241,225,249,.04)}
+.gd-genre:nth-child(1){transform:rotate(-2deg)}
+.gd-genre:nth-child(2){transform:rotate(1.5deg)}
+.gd-genre::before{content:"";position:absolute;top:-3px;left:10px;width:5px;height:5px;border-radius:50%;
+	background:rgba(241,225,249,.4)}
+/* галерея – слайдер: видно ровно 2 кадра целиком, пролистывается стрелками, ничего не обрезается и не торчит */
+.gd-gallery{margin-top:14px;display:flex;align-items:center;gap:6px}
+.gd-gal-viewport{flex:1;min-width:0;overflow:hidden}
+.gd-gal-track{display:flex;gap:14px;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.gd-shot{flex:none;aspect-ratio:16/9;cursor:zoom-in;
+	background:repeating-linear-gradient(45deg,rgba(241,225,249,.18) 0 1px,transparent 1px 9px);border:1px solid rgba(241,225,249,.28)}
+.gd-shot--img{background-size:contain;background-repeat:no-repeat;background-position:center;background-color:#0b0b0d}
+.gd-gal-arrow{all:unset;flex:none;cursor:pointer;font-size:1.5rem;line-height:1;padding:8px 6px;color:rgba(241,225,249,.7)}
+.gd-gal-arrow:hover{color:var(--cream)}
+.gd-gal-arrow[disabled]{opacity:.2;cursor:default;pointer-events:none}
+
+/* увеличенный просмотр кадра галереи – кадр по размеру самой картинки, со стрелками пролистывания */
+.gd-lightbox{position:fixed;inset:0;z-index:60;display:none;align-items:center;justify-content:center;gap:18px;padding:6vw;
+	background:rgba(5,5,8,.86)}
+.gd-lightbox.is-open{display:flex}
+.gd-lightbox__img{display:block;max-width:min(78vw,1100px);max-height:82vh;width:auto;height:auto;
+	border:1px solid rgba(241,225,249,.4)}
+.gd-lightbox__nav{all:unset;flex:none;cursor:pointer;font-size:2.2rem;line-height:1;padding:10px 14px;
+	color:rgba(241,225,249,.7);user-select:none}
+.gd-lightbox__nav:hover{color:var(--cream)}
+.gd-lightbox__close{all:unset;position:absolute;top:26px;right:clamp(20px,4vw,52px);cursor:pointer;
+	font-size:2rem;line-height:1;color:rgba(241,225,249,.8)}
+.gd-lightbox__close:hover{color:var(--cream)}
+
+/* подсказка «нажми, чтобы узнать больше» – сверху слева, подальше от текста внизу */
+.gd-hint{position:absolute;left:clamp(24px,4vw,52px);top:clamp(24px,4vw,52px);z-index:2;display:none;align-items:center;gap:10px}
+.gd-item.is-featured:not(.is-expanded) .gd-hint{display:flex}
+.gd-hint__dot{position:relative;width:10px;height:10px;border-radius:50%;background:var(--cream);flex:none}
+.gd-hint__dot::before,.gd-hint__dot::after{content:"";position:absolute;inset:0;border-radius:50%;border:1px solid var(--cream);animation:gdPulse 2.4s ease-out infinite}
+.gd-hint__dot::after{animation-delay:1.2s}
+@keyframes gdPulse{0%{transform:scale(1);opacity:.85}100%{transform:scale(3.2);opacity:0}}
+.gd-hint__label{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(241,225,249,.85);white-space:nowrap}
+
+/* ---------- ФИНАЛ ---------- */
+.finale{position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;padding:12vw max(24px,7vw);overflow:hidden;background:#05070f;isolation:isolate}
+.finale__moon{position:absolute;inset:0;z-index:-2;background:center/cover no-repeat;filter:brightness(.7) contrast(1.1)}
+.finale__grad{position:absolute;inset:0;z-index:-1;background:radial-gradient(60% 60% at 50% 45%,transparent,rgba(5,7,15,.75) 80%)}
+.finale blockquote{margin:0;max-width:1000px}
+.finale q{font-style:italic;font-weight:800;font-size:clamp(2.6rem,9vw,8rem);line-height:.92;letter-spacing:-.04em;quotes:none}
+.finale footer{margin-top:40px;color:rgba(241,225,249,.5);font-size:.72rem;letter-spacing:.1em}
+
+/* ---------- Мобильная вёрстка ---------- */
+@media(max-width:720px){
+	.topbar{width:calc(100% - 32px);top:18px}
+	.nav{gap:11px;font-size:.6rem}
+	.moondial{right:16px;bottom:16px;width:36px;height:36px}
+	.hero{padding:120px 20px 40px}
+	.hero h1{font-size:clamp(3.6rem,20vw,7rem)}
+	.hero__inner{max-width:none}
+	.about{min-height:auto}
+	.about__sticky{position:static;height:auto;padding:110px 20px 60px}
+	.about__strip{margin-top:44px}
+	.about__frame{width:78vw}
+	.as-grid{grid-template-columns:1fr;padding:100px 20px 40px}
+	.work{padding:90px 20px}
+	.wrow__head{grid-template-columns:2em 1fr 1.2em;gap:10px 14px}
+	.wrow__tag{display:none}
+	.wrow__panel-in{padding-left:calc(2em + 14px)}
+	.hobby{padding:90px 20px}
+	.gd-item{flex-basis:100%}
+	.gd-item.is-featured{min-height:60vh}
+	.gd-item.is-expanded{flex-direction:column}
+	.gd-item.is-expanded .gd-menu{flex:none}
+	.finale q{font-size:clamp(2.2rem,13vw,4rem)}
+
+	.music-sticky{padding:270px 20px 30px}
+	.music-head{left:20px}
+	.music-head h2{white-space:normal;font-size:clamp(1.9rem,7vw,2.8rem)}
+	.music-hint{top:222px;left:20px;white-space:normal;max-width:200px}
+	.music-track{margin-top:75px}
+	.music-card-wrap{width:86vw}
+	.music-clean-card{
+		display:flex;
+		flex-direction:column;
+		gap:20px;
+		width:100%;
+		padding:20px;
+		-webkit-mask-image:none;
+		mask-image:none;
+	}
+	.music-clean-card::after{top:-48px;right:-48px;width:110px;height:110px}
+	.music-card-star{width:64px;height:64px;top:-20px;right:-20px}
+	.music-clean-cover{width:100%;height:auto;max-width:none}
+	.music-clean-info{height:auto}
+	.music-clean-bottom{display:flex;flex-direction:column;gap:20px;padding-top:20px}
+	.music-clean-quote{width:100%;max-width:none}
+	.music-clean-button::before,.music-clean-button::after{width:26px;height:26px}
+	.music-clean-button::before{left:-11px}
+	.music-clean-button::after{right:-11px}
+}
+
+@media(prefers-reduced-motion:reduce){
+	html{scroll-behavior:auto}
+	*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
+}
+
+/* ======================================================================
+   POSTER MODE v2 — тёмный зин / бутлег-плакат, применяется ко всему poster.html
+   ====================================================================== */
+.poster-mode{
+	--paper:#0a0a0c;--panel:#101013;--ink:#ece7db;--ink-dim:#847e71;
+	--lav:#a89ff2;--blood:#c81e3a;--hair:rgba(236,231,219,.24);
+	--mono:"IBM Plex Mono","Courier New",monospace;
+	--disp:"Oswald","Arial Narrow","Arial",sans-serif;
+	background:var(--paper);color:var(--ink);
+}
+.poster-mode body,.poster-mode main{background:var(--paper)}
+
+/* плёночное зерно + виньетка на весь вьюпорт */
+.poster-mode::after{content:"";position:fixed;inset:0;z-index:9997;pointer-events:none;mix-blend-mode:soft-light;opacity:.9;
+	background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.95' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:120px}
+.poster-mode::before{content:"";position:fixed;inset:0;z-index:9996;pointer-events:none;box-shadow:inset 0 0 240px 50px rgba(0,0,0,.82)}
+
+/* топбар */
+.poster-mode .topbar{width:min(1600px,calc(100% - 44px));top:16px;font-family:var(--mono);font-size:.58rem;letter-spacing:.26em}
+.poster-mode .topbar .mark{color:var(--ink);font-weight:600}
+.poster-mode .topbar .nav{gap:20px;color:var(--ink-dim)}
+.poster-mode .topbar .nav a:hover{color:var(--lav)}
+.poster-mode .moondial{width:32px;height:32px;border-radius:0;filter:grayscale(1) contrast(1.7) brightness(1.1);box-shadow:0 0 0 1px var(--hair)}
+
+/* типографический сброс секций */
+.poster-mode .about,.poster-mode .work,.poster-mode .music,.poster-mode .hobby,.poster-mode .finale{background:var(--paper)!important;color:var(--ink)}
+.poster-mode h2{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:.005em;color:var(--ink);font-size:clamp(2.6rem,7vw,6rem);line-height:.84}
+.poster-mode .sec-index,.poster-mode .section-index{font-family:var(--mono);color:var(--lav);font-weight:500;letter-spacing:.26em;text-transform:uppercase;font-size:.62rem}
+.poster-mode .about__bio,.poster-mode .work__head p,.poster-mode .hobby__head p,.poster-mode .wrow p,.poster-mode .gd-detail-text{font-family:var(--mono);color:var(--ink-dim);font-size:.8rem;line-height:1.5;text-align:left}
+.poster-mode .gd-text{font-family:var(--mono);font-size:.8rem;line-height:1.5;text-align:left}
+
+/* рамка-плита + реперы (.work/.hobby/.finale уже position:relative, .about__sticky/.music-sticky — position:sticky, не трогаем) */
+.poster-mode .about__sticky::before,.poster-mode .music-sticky::before,.poster-mode .work::before,.poster-mode .hobby::before,.poster-mode .finale::before{
+	content:"";position:absolute;inset:14px;border:1px solid var(--hair);pointer-events:none;z-index:2}
+.poster-mode .work::after,.poster-mode .hobby::after{content:"";position:absolute;left:14px;right:14px;top:14px;height:8px;pointer-events:none;z-index:2;
+	background:repeating-linear-gradient(90deg,var(--hair) 0 1px,transparent 1px 9px)}
+.poster-mode .p-plate{position:absolute;z-index:3;font-family:var(--mono);font-size:.56rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-dim);top:26px;right:30px}
+.poster-mode .p-plate.l{left:30px;right:auto}
+
+/* hero под тёмную тему */
+.poster-mode .hero--poster .p-strip.top{top:56px}
+/* имя — картинкой вместо шрифта */
+.poster-mode .hero--poster .p-mega{transform:none;font-size:0;line-height:0}
+.poster-mode .hero--poster .p-name{display:block;width:min(80vw,600px);max-width:100%;height:auto}
+.poster-mode .hero--poster .grain{mix-blend-mode:soft-light;opacity:.9}
+/* вводный экран = ДВА экрана: фото сверху (высота = высоте фото) + постер с именем ниже */
+.poster-mode .hero--poster{overflow:visible;min-height:0}
+.hero--poster .p-screen{position:relative;background:#0a0a0c}
+.hero--poster .p-screen2{min-height:100svh;overflow:visible}
+
+/* ЭКРАН 1 — на всю высоту вьюпорта: фото сверху вплотную, шов, оглавление, дальше тёмное поле */
+.hero--poster .p-screen1{min-height:100svh;display:flex;flex-direction:column;overflow:hidden}
+.hero--poster .p-screen1__fill{flex:1 1 auto;position:relative;z-index:2;display:flex;gap:32px;
+	justify-content:space-between;align-items:flex-end;padding:clamp(26px,5vh,54px) clamp(24px,5vw,80px)}
+.hero--poster .p-file{margin:0;display:flex;flex-direction:column;gap:7px;max-width:540px;
+	font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim)}
+.hero--poster .p-file > div{display:flex;justify-content:space-between;gap:16px;
+	border-bottom:1px dotted rgba(236,231,219,.22);padding-bottom:6px}
+.hero--poster .p-file dt{opacity:.6;flex:none}
+.hero--poster .p-file dd{margin:0;text-align:right;color:var(--ink)}
+.hero--poster .p-file__side{display:flex;flex-direction:column;align-items:flex-end;gap:14px;flex:none}
+.hero--poster .p-ret-grid{display:grid;grid-template-columns:repeat(3,auto);gap:9px 11px;font-size:.9rem;color:var(--ink);opacity:.6}
+.hero--poster .p-ret-grid span:nth-child(2){color:var(--blood);opacity:1}
+.hero--poster .p-ret-grid span:nth-child(5){color:var(--lav);opacity:1}
+.hero--poster .p-scroll{font-family:var(--mono);font-size:.56rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-dim)}
+.hero--poster .p-bg{position:relative;z-index:0;display:block;width:100%;line-height:0;flex:none}
+.hero--poster .p-bg img{position:static;display:block;width:100%;height:auto;
+	filter:saturate(1.15) contrast(1.05)}
+.hero--poster .p-bg::after{content:"";position:absolute;left:0;right:0;bottom:0;height:72px;pointer-events:none;
+	background:linear-gradient(180deg,transparent,rgba(10,10,12,.9))}
+
+/* ШОВ между фото и фоном — печатная кромка с реперами и подписью */
+.hero--poster .p-seam{position:relative;z-index:3;flex:none;display:flex;align-items:center;gap:16px;
+	margin:0 16px;padding:13px clamp(24px,5vw,80px);border-top:1px solid var(--ink);
+	background:linear-gradient(180deg,rgba(10,10,12,.35),#0a0a0c 60%);
+	font-family:var(--mono);font-size:.56rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-dim)}
+.hero--poster .p-seam__rule{flex:1;height:1px;background:var(--hair)}
+.hero--poster .p-seam::after{content:"";position:absolute;left:0;right:0;top:-1px;height:6px;pointer-events:none;
+	background:repeating-linear-gradient(90deg,var(--ink) 0 1px,transparent 1px 11px)}
+
+/* ЭКРАН 2 — постер: прицелы / метка / имя / курсив / лор / бейджи, по центру */
+.hero--poster .p-screen2 .p-wrap{position:relative;inset:auto;min-height:100svh;justify-content:center;
+	align-items:flex-end;text-align:right;padding:16vh clamp(40px,7vw,120px)}
+.hero--poster .p-screen2 .p-ret-row,.hero--poster .p-screen2 .p-tag{align-self:flex-end}
+.hero--poster .p-screen2 .p-mega{align-self:center}
+.hero--poster .p-screen2 .p-sub,.hero--poster .p-screen2 .p-lore{margin-left:auto;margin-right:0;text-align:right}
+.hero--poster .p-screen2 .p-specs{justify-content:flex-end}
+/* оглавление сразу под швом (в потоке первого экрана) */
+.hero--poster .p-contents{position:relative;z-index:3;flex:none;margin:0 16px;
+	display:flex;flex-wrap:wrap;gap:9px 14px;align-items:center;justify-content:center;
+	padding:14px clamp(24px,5vw,80px);border-bottom:1px solid var(--hair);
+	font-family:var(--mono);font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-dim)}
+.hero--poster .p-contents a{transition:color .2s}
+.hero--poster .p-contents a:hover{color:var(--lav)}
+.hero--poster .p-contents span{opacity:.4}
+/* призрачный «глаз» — концентрические кольца за именем (мотив оракула / спираль Макимы) */
+.hero--poster .p-eye{position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);z-index:0;pointer-events:none;
+	width:min(128vw,1500px);aspect-ratio:1;opacity:.55;
+	background:repeating-radial-gradient(circle at 50% 50%,transparent 0 54px,var(--hair) 54px 55px,transparent 55px 110px);
+	-webkit-mask:radial-gradient(circle at 50% 50%,#000 22%,transparent 62%);mask:radial-gradient(circle at 50% 50%,#000 22%,transparent 62%)}
+.hero--poster .p-eye::after{content:"";position:absolute;left:50%;top:50%;width:14px;height:14px;transform:translate(-50%,-50%);
+	border-radius:50%;background:var(--blood);opacity:.75;box-shadow:0 0 16px 2px rgba(200,30,58,.5)}
+.hero--poster .p-ret-row{display:flex;gap:14px;font-size:1rem;color:var(--ink);opacity:.75;margin-bottom:clamp(14px,3vh,26px)}
+.hero--poster .p-ret-row span:nth-child(2){color:var(--blood);opacity:1}
+.hero--poster .p-ret-row span:nth-child(3){color:var(--lav)}
+.hero--poster .p-lore{font-family:var(--mono);font-size:.66rem;line-height:1.75;letter-spacing:.14em;text-transform:uppercase;
+	color:var(--ink-dim);max-width:560px;margin:clamp(16px,3vh,28px) 0 0}
+
+.poster-mode .hero--poster .halftone{mix-blend-mode:overlay;opacity:.3;background-size:5px 5px}
+.poster-mode .hero--poster .p-window{display:none}
+
+/* 01 / обо мне */
+.poster-mode .about__frame{border-radius:0;background:var(--panel);border:1px solid var(--hair);height:min(46vh,380px);overflow:hidden}
+.poster-mode .about__frame img{filter:grayscale(1) contrast(1.5) brightness(1.12)}
+.poster-mode .about__frame::after{content:"";right:8px;top:8px;left:auto;width:16px;height:10px;
+	background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 4px);opacity:.9}
+.poster-mode .about__frame::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;mix-blend-mode:overlay;opacity:.4;
+	background-image:radial-gradient(#000 34%,transparent 37%);background-size:4px 4px}
+/* прояснение: кадр входит размытым/тусклым и «проявляется», пока едет к фокусу */
+.poster-mode .about__frame{opacity:.4;filter:blur(7px);transition:opacity .7s ease,filter .7s ease}
+.poster-mode .about__frame.sharp{opacity:1;filter:blur(0)}
+
+/* 01 / обо мне — тёмная тема */
+.poster-mode .about-simple{background:var(--paper);color:var(--ink)}
+.poster-mode .as-text h2{font-family:var(--disp);font-weight:700;text-transform:uppercase;color:var(--ink)}
+.poster-mode .as-bio{font-family:var(--mono);color:var(--ink-dim)}
+.poster-mode .as-photo{border:1px solid var(--ink);background:var(--panel)}
+.poster-mode .as-photo__img{filter:contrast(1.12) brightness(1.02)}
+.poster-mode .as-photo::after{content:"";position:absolute;inset:0;z-index:4;pointer-events:none;mix-blend-mode:overlay;opacity:.3;
+	background-image:radial-gradient(#000 34%,transparent 37%);background-size:4px 4px}
+.poster-mode .as-photo::before{background:var(--lav);box-shadow:0 0 14px 2px rgba(168,159,242,.8)}
+.poster-mode .as-seam{border-top:1px solid var(--ink);color:var(--ink-dim);font-family:var(--mono)}
+.poster-mode .as-seam__rule{background:var(--hair)}
+
+/* 02 / работа — досье */
+.poster-mode .wrow{border-radius:0;background:transparent;border:0;border-top:1px dotted var(--hair);padding:20px 6px}
+.poster-mode .wrow:last-child{border-bottom:1px dotted var(--hair)}
+.poster-mode .wrow__num{font-family:var(--mono);color:var(--lav);letter-spacing:.08em}
+.poster-mode .wrow h3{font-family:var(--disp);font-weight:600;text-transform:uppercase;font-size:clamp(1.1rem,2.4vw,1.7rem);letter-spacing:.02em}
+.poster-mode .wrow:hover h3{color:var(--lav)}
+.poster-mode .wrow__tag{font-family:var(--mono);color:var(--ink-dim);letter-spacing:.14em}
+.poster-mode .wrow__plus{font-family:var(--mono);color:var(--ink-dim)}
+.poster-mode .wrow[data-open="true"] .wrow__plus{color:var(--lav)}
+.poster-mode .wrow p{font-family:var(--mono)}
+.poster-mode .wrow__stamp{font-family:var(--mono);color:var(--blood)}
+.poster-mode .wrow__list{font-family:var(--mono);color:var(--ink-dim)}
+.poster-mode .wrow__list li::before{color:var(--lav)}
+.poster-mode .wrow__odd b{font-family:var(--disp);color:var(--lav)}
+.poster-mode .wrow__odd span{font-family:var(--mono);color:var(--ink-dim)}
+.poster-mode .work__tags{font-family:var(--mono);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-dim)}
+.poster-mode .work__note{font-family:var(--mono);color:var(--ink-dim);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase}
+.poster-mode .wex-label{font-family:var(--mono);color:var(--ink-dim)}
+.poster-mode .wex__ph{background:repeating-linear-gradient(45deg,var(--hair) 0 1px,transparent 1px 9px);border:1px solid var(--ink)}
+.poster-mode .wex figcaption{font-family:var(--mono);color:var(--ink-dim);background:var(--paper);padding:2px 6px;left:8px;bottom:8px}
+
+/* 03 / музыка — 1-битные конверты */
+.poster-mode .music-head h2{font-size:clamp(1.8rem,4vw,3rem);white-space:nowrap}
+.poster-mode .music-hint{font-family:var(--mono);color:var(--ink-dim);letter-spacing:.2em}
+.poster-mode .music-clean-card{
+	background:var(--panel)!important;color:var(--ink);border:1px solid var(--ink);border-radius:0;
+	-webkit-mask-image:none!important;mask-image:none!important;
+	grid-template-columns:minmax(200px,var(--mc-cover)) minmax(300px,1fr);padding:24px 26px 30px}
+.poster-mode .music-clean-card::after{display:none}
+.poster-mode .music-clean-cover{border-radius:0;filter:grayscale(1) contrast(1.6) brightness(1.06);border:1px solid var(--hair)}
+.poster-mode .music-clean-avatar{border-radius:0;border:1px solid var(--ink);filter:grayscale(1) contrast(1.6) brightness(1.06)}
+.poster-mode .music-clean-name{font-family:var(--disp);text-transform:uppercase;letter-spacing:.04em;color:var(--ink)}
+.poster-mode .music-clean-info small{font-family:var(--mono);color:var(--ink-dim);letter-spacing:.14em}
+.poster-mode .music-clean-info h3{font-family:var(--disp);font-weight:700;text-transform:uppercase;color:var(--ink)}
+.poster-mode .music-clean-info p{font-family:var(--mono);color:var(--ink-dim);text-align:left}
+.poster-mode .music-clean-bottom{border-top:1px solid var(--hair)}
+.poster-mode .music-clean-quote{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-weight:600;color:var(--ink)}
+.poster-mode .music-clean-button{background:transparent!important;border:1px solid var(--ink);border-radius:0;color:var(--ink);
+	font-family:var(--mono);letter-spacing:.2em;text-transform:uppercase}
+.poster-mode .music-clean-button:hover{background:var(--ink)!important;color:var(--paper)}
+.poster-mode .music-clean-button::before{background:var(--ink)!important;left:-11px;width:26px;height:26px}
+.poster-mode .music-clean-button::after{background:var(--ink)!important;right:-11px;width:26px;height:26px}
+.poster-mode .music-card-star svg path{fill:var(--ink)}
+.poster-mode .music-card-star::before{background:radial-gradient(circle,rgba(236,231,219,.35) 0 6%,rgba(168,159,242,.12) 45%,transparent 72%)}
+
+/* 04 / игры — каталог */
+.poster-mode .gd-item{border-radius:0;border:1px solid var(--hair);background:var(--panel)}
+.poster-mode .gd-item.is-featured{border-color:var(--ink)}
+.poster-mode .gd-grad{background:linear-gradient(0deg,rgba(10,10,12,.9),transparent 70%)}
+.poster-mode .gd-bg{filter:grayscale(1) contrast(1.7) brightness(.82)}
+.poster-mode .gd-sigil{color:var(--ink);opacity:.65}
+.poster-mode .gd-label{font-family:var(--mono);color:var(--lav);letter-spacing:.22em}
+.poster-mode .gd-title{font-family:var(--disp);font-weight:600;text-transform:uppercase;letter-spacing:.03em;color:var(--ink)}
+.poster-mode .gd-item.is-featured .gd-title{font-weight:700}
+.poster-mode .gd-detail-label{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:.02em;color:var(--ink)}
+.poster-mode .gd-detail{background:linear-gradient(160deg,rgba(20,20,24,.5),rgba(10,10,12,.92));border-left:1px solid var(--hair)}
+.poster-mode .gd-specs dt{font-family:var(--mono);color:var(--lav);opacity:.7}
+.poster-mode .gd-specs dd{font-family:var(--mono);color:var(--ink)}
+.poster-mode .gd-specs>div{border-bottom-color:var(--hair)}
+.poster-mode .gd-hero__portrait{background:repeating-linear-gradient(45deg,var(--hair) 0 1px,transparent 1px 9px);border-color:var(--ink)}
+.poster-mode .gd-hero__name{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:.02em;color:var(--ink)}
+.poster-mode .gd-hero__role{font-family:var(--mono);color:var(--lav)}
+.poster-mode .gd-hero__text{font-family:var(--mono);color:rgba(236,231,220,.78)}
+.poster-mode .gd-hero-link path{stroke:var(--hair)}
+.poster-mode .gd-hero-pulse{background:var(--ink);box-shadow:0 0 8px var(--lav)}
+.poster-mode .gd-genre{font-family:var(--mono);border-color:var(--hair);color:var(--ink);background:rgba(236,231,220,.04)}
+.poster-mode .gd-genre::before{background:var(--lav)}
+.poster-mode .gd-hint__dot{background:var(--ink)}
+.poster-mode .gd-hint__dot::before,.poster-mode .gd-hint__dot::after{border-color:var(--ink)}
+.poster-mode .gd-hint__label{font-family:var(--mono);color:var(--ink)}
+.poster-mode .gd-shot{background:repeating-linear-gradient(45deg,var(--hair) 0 1px,transparent 1px 9px);border:1px solid var(--ink)}
+.poster-mode .gd-shot--img{background-size:contain;background-repeat:no-repeat;background-position:center;background-color:#0b0b0d}
+.poster-mode .gd-shot:hover{border-color:var(--lav)}
+.poster-mode .gd-gal-arrow:hover{color:var(--lav)}
+.poster-mode .gd-plot{background:repeating-linear-gradient(45deg,var(--hair) 0 1px,transparent 1px 9px);border-color:var(--ink)}
+.poster-mode .gd-detail--pixel .gd-detail-label{color:var(--ink)}
+/* обложка SH2 пересвечена под общим фильтром – смягчаем именно для неё */
+.poster-mode .gd-item--sh2 .gd-bg{filter:grayscale(1) contrast(1.15) brightness(.6)}
+.poster-mode .gd-lightbox__img{border-color:var(--ink)}
+.poster-mode .gd-lightbox__nav:hover{color:var(--lav)}
+.poster-mode .gd-lightbox__close:hover{color:var(--lav)}
+
+/* 03 / музыка — ЕДИНСТВЕННЫЙ цветной блок: лавандовая вкладка */
+.poster-mode .music{--mink:#17122e;background:linear-gradient(165deg,#c7c0f6 0%,#9a8ee4 46%,#524499 100%)!important}
+.poster-mode .music-sticky::before{border-color:rgba(23,18,46,.34)}
+/* плашки листа — вниз, чтобы не перебивались с «03 / музыка» */
+.poster-mode .music-sticky .p-plate{top:auto;bottom:28px}
+.poster-mode .music .p-plate{color:rgba(23,18,46,.55)}
+.poster-mode .music-head h2{color:var(--mink)}
+.poster-mode .music .section-index{color:var(--mink);opacity:.72}
+.poster-mode .music-hint{color:rgba(23,18,46,.62)}
+.poster-mode .music-track .music-clean-card{background:#ece7db!important;border-color:var(--mink)}
+.poster-mode .music-clean-name,.poster-mode .music-clean-info h3{color:var(--mink)}
+.poster-mode .music-clean-info small{color:rgba(23,18,46,.6)}
+.poster-mode .music-clean-info p{color:rgba(23,18,46,.72)}
+.poster-mode .music-clean-bottom{border-top-color:rgba(23,18,46,.3)}
+.poster-mode .music-clean-quote{color:var(--mink)}
+.poster-mode .music-clean-cover{position:relative;filter:grayscale(1) contrast(1.45) brightness(1.05);border-color:rgba(23,18,46,.3)}
+.poster-mode .music-clean-cover::after{content:"";position:absolute;inset:0;background:#5a4ec4;mix-blend-mode:multiply;opacity:.55;pointer-events:none}
+.poster-mode .music-clean-avatar{border-color:var(--mink);filter:grayscale(1) contrast(1.4) brightness(1.05)}
+.poster-mode .music-clean-button{border-color:var(--mink);color:var(--mink)}
+.poster-mode .music-clean-button:hover{background:var(--mink)!important;color:#ece7db}
+.poster-mode .music-clean-button::before,.poster-mode .music-clean-button::after{background:var(--mink)!important}
+.poster-mode .music-card-star svg path{fill:var(--mink)}
+.poster-mode .music-card-star::before{background:radial-gradient(circle,rgba(23,18,46,.4) 0 6%,rgba(90,78,196,.28) 45%,transparent 72%)}
+.poster-mode .music-card-wrap.is-active .music-clean-card{box-shadow:0 30px 60px -24px rgba(40,28,90,.6)}
+/* воздух между обложкой и текстом; текст занимает правую зону; кнопка — как была */
+.poster-mode .music-clean-card{gap:24px 52px}
+.poster-mode .music-clean-info p{max-width:none}
+/* название трека — акцентным фиолетовым: и в заголовке карточки, и в кнопке */
+.poster-mode .music{--macc:#5b4dc4}
+.poster-mode .music-clean-info h3{color:var(--macc)}
+.poster-mode .mcb-t{color:var(--macc);font-weight:600}
+.poster-mode .music-clean-button:hover .mcb-t{color:#ece7db}
+.poster-mode .music-back{border-radius:0;border:1px solid var(--mink);background:transparent;color:var(--mink);
+	font-family:var(--mono);letter-spacing:.16em;text-transform:uppercase;font-size:.62rem;padding:11px 20px}
+.poster-mode .music-back:hover{background:var(--mink);color:#ece7db}
+
+/* курсор — чёрный (с тонким светлым контуром, чтобы читался и на тёмном, и на лаванде) */
+.poster-mode .cursor i{border-color:#0a0a0c;box-shadow:0 0 0 1px rgba(236,231,219,.55)}
+.poster-mode .cursor b{background:#0a0a0c;box-shadow:0 0 0 1px rgba(236,231,219,.5)}
+.poster-mode.c-link .cursor i{background:#0a0a0c}
+.poster-mode.c-media .cursor i{border-color:rgba(10,10,12,.7)}
+
+/* ФИНАЛ */
+.poster-mode .finale{background:#050506!important}
+.poster-mode .finale__moon{filter:grayscale(1) contrast(1.9) brightness(.85);mix-blend-mode:screen;opacity:.5}
+.poster-mode .finale__grad{background:radial-gradient(70% 70% at 50% 45%,transparent,#050506 82%)}
+.poster-mode .finale q{font-family:var(--disp);font-style:normal;font-weight:700;text-transform:uppercase;letter-spacing:.01em;color:var(--ink)}
+.poster-mode .finale footer{font-family:var(--mono);letter-spacing:.24em;text-transform:uppercase;color:var(--ink-dim)}
+</style>
+</head>
+<body class="poster-mode">
+<div class="cursor" aria-hidden="true"><i></i><b></b></div>
+<div class="moondial" aria-hidden="true"><img id="moondial-img" src="images/moon/m01.jpg" alt=""></div>
+
+<nav class="topbar" aria-label="Основная навигация">
+	<a class="mark" href="#top">КСЕНИЯ</a>
+	<div class="nav">
+		<a href="#about">обо мне</a>
+		<a href="#work">работа</a>
+		<a href="#music">музыка</a>
+		<a href="#hobby">игры</a>
+	</div>
+</nav>
+
+<main id="top">
+	<header class="hero hero--poster">
+		<div class="p-frame" aria-hidden="true"></div>
+		<span class="p-reg tl" aria-hidden="true"><i></i></span>
+		<span class="p-reg tr" aria-hidden="true"><i></i></span>
+		<span class="p-reg bl" aria-hidden="true"><i></i></span>
+		<span class="p-reg br" aria-hidden="true"><i></i></span>
+
+		<div class="p-strip top" aria-hidden="true">
+			<span>KSENIA</span><span>ЛИЧНОЕ ДЕЛО</span><span class="grow"></span><span>PL. 01 / 06</span><span class="p-bars sm"></span>
+		</div>
+
+		<div class="p-side" aria-hidden="true">инженер · seo · тимлид</div>
+
+		<figure class="p-window" aria-hidden="true">
+			<video id="hv" src="video/clip4.mp4" muted playsinline autoplay preload="auto"></video>
+		</figure>
+
+		<div class="p-screen p-screen1">
+			<div class="p-bg" aria-hidden="true"><img src="images/ya/eyes_hero_trim_red.jpg" alt=""></div>
+			<div class="p-seam" aria-hidden="true">
+				<span>FIG. I &ndash; KSENIA / ЛИЧНОЕ ДЕЛО</span>
+				<span class="p-seam__rule"></span>
+				<span>оракул смотрит</span>
+				<span class="p-bars sm"></span>
+			</div>
+			<nav class="p-contents" aria-label="разделы">
+				<a href="#about">01 обо мне</a><span aria-hidden="true">&ndash;</span><a href="#work">02 работа</a><span aria-hidden="true">&ndash;</span><a href="#music">03 музыка</a><span aria-hidden="true">&ndash;</span><a href="#hobby">04 игры</a><span aria-hidden="true">&ndash;</span><a href="#finale">финал</a>
+			</nav>
+			<div class="p-screen1__fill">
+				<dl class="p-file">
+					<div><dt>имя</dt><dd>Ксения</dd></div>
+					<div><dt>профессия</dt><dd>SEO-тимлид</dd></div>
+					<div><dt>образование</dt><dd>инженер</dd></div>
+					<div><dt>возраст</dt><dd>23</dd></div>
+				</dl>
+				<div class="p-file__side" aria-hidden="true">
+					<div class="p-ret-grid"><span>&#9678;</span><span>&#9678;</span><span>&#9678;</span><span>&#9678;</span><span>&#9678;</span><span>&#9678;</span></div>
+					<span class="p-bars"></span>
+					<span class="p-scroll">&darr; листай</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="p-screen p-screen2">
+			<span class="p-eye" aria-hidden="true"></span>
+			<div class="p-wrap">
+				<div class="p-ret-row" aria-hidden="true"><span>&#9678;</span><span>&#9678;</span><span>&#9678;</span><span>&#9678;</span></div>
+				<p class="p-tag">личное дело · SEO</p>
+				<h1 class="p-mega"><span class="visually-hidden">Ксения</span><img class="p-name" src="images/ya/ksenia_name.png" alt="Ксения"></h1>
+				<p class="p-sub">тимлид SEO-отдела</p>
+				<p class="p-lore">Инженер по образованию, тимлид по факту.</p>
+				<div class="p-specs">
+					<span class="p-badge">ИНЖЕНЕР</span>
+					<span class="p-badge fill">SEO</span>
+					<span class="p-badge red">23</span>
+					<span class="p-bars"></span>
+				</div>
+			</div>
+		</div>
+
+		<div class="p-strip bot" aria-hidden="true">
+			<span>досье</span><span class="grow"></span><span>KSENIA &#169; MMXXVI</span>
+		</div>
+
+		<div class="halftone" aria-hidden="true"></div>
+		<div class="grain" aria-hidden="true"></div>
+	</header>
+
+	<section class="about-simple" id="about">
+		<span class="p-plate l" aria-hidden="true">личное дело</span>
+		<span class="p-plate" aria-hidden="true">PL. 02 / 06</span>
+		<div class="as-grid">
+			<div class="as-text">
+				<p class="sec-index">01 / обо мне</p>
+				<h2>Обо мне</h2>
+				<p class="as-bio">23 года. По образованию инженер, сейчас руковожу SEO-отделом. Люблю разбираться, а не предполагать.</p>
+			</div>
+			<figure class="as-photo">
+				<img class="as-photo__img is-shown" src="images/ya/about_photo.jpg" alt="">
+				<img class="as-photo__img" src="images/ya/about_photo2.jpg" alt="">
+			</figure>
+		</div>
+		<div class="as-seam" aria-hidden="true">
+			<span>FIG. II &ndash; KSENIA / ПОРТРЕТ</span>
+			<span class="as-seam__rule"></span>
+			<span>профиль</span>
+		</div>
+	</section>
+
+	<section class="work" id="work">
+		<span class="p-plate l" aria-hidden="true">досье</span>
+		<span class="p-plate" aria-hidden="true">PL. 03 / 06</span>
+		<div class="work__head">
+			<p class="sec-index">02 / работа</p>
+			<h2>Чем занята голова?</h2>
+			<p>Началось с чертежей и ГОСТов, а закончилось выдачей и позициями в топе. Разное ремесло – один и тот же способ думать: сначала разобраться, как всё устроено, потом проектировать решение.</p>
+		</div>
+		<div class="work__rows">
+			<article class="wrow" data-open="true">
+				<button class="wrow__head" type="button" aria-expanded="true">
+					<span class="wrow__num">01</span>
+					<span class="wrow__body"><h3>Достижения</h3><p>Из института – сразу в профессию, без пауз.</p></span>
+					<span class="wrow__tag">цифры</span>
+					<span class="wrow__plus" aria-hidden="true">+</span>
+				</button>
+				<div class="wrow__panel">
+					<div class="wrow__panel-in">
+						<p class="wrow__stamp">рассекречено</p>
+						<div class="wrow__odds">
+							<div class="wrow__odd"><b data-count="2024">0</b><span>год выпуска – и в том же году первая работа в SEO</span></div>
+							<div class="wrow__odd"><b data-count="2" data-suffix=" года">0</b><span>от первой позиции до тимлида отдела</span></div>
+							<div class="wrow__odd"><b data-count="7">0</b><span>проектов веду с нуля с 2024 года и до сих пор</span></div>
+							<div class="wrow__odd"><b>1-2</b><span>средняя страница выдачи по проектам – и в Яндексе, и в Google</span></div>
+							<div class="wrow__odd"><b data-count="20" data-suffix="+">0</b><span>статей по SEO опубликовано</span></div>
+							<div class="wrow__odd"><b data-count="2">0</b><span>научные работы – ещё со времён учёбы в универе</span></div>
+							<div class="wrow__odd"><b data-count="3">0</b><span>человека в моей команде</span></div>
+							<div class="wrow__odd"><b>1,5 года</b><span>средний срок ведения проекта в команде при нагрузке 8-10 проектов на человека</span></div>
+						</div>
+					</div>
+				</div>
+			</article>
+			<article class="wrow" data-open="false">
+				<button class="wrow__head" type="button" aria-expanded="false">
+					<span class="wrow__num">02</span>
+					<span class="wrow__body"><h3>Инженер</h3><p>Училась проектировать пространства, а не сайты.</p></span>
+					<span class="wrow__tag">образование</span>
+					<span class="wrow__plus" aria-hidden="true">+</span>
+				</button>
+				<div class="wrow__panel">
+					<div class="wrow__panel-in">
+						<p class="wrow__stamp">рассекречено</p>
+						<ul class="wrow__list">
+							<li>Специальность – проектирование экспозиционно-рекламных объектов: выставочные стенды, павильоны, презентационные зоны, а также пиллары, билборды, вывески и крышные установки.</li>
+							<li>Работала с чертежами по ГОСТам, где точность считается в миллиметрах, а не на глаз.</li>
+							<li>Та же дотошность к деталям и цифрам осталась и в SEO – только вместо миллиметров теперь позиции в выдаче.</li>
+						</ul>
+					</div>
+				</div>
+			</article>
+			<article class="wrow" data-open="false">
+				<button class="wrow__head" type="button" aria-expanded="false">
+					<span class="wrow__num">03</span>
+					<span class="wrow__body"><h3>SEO-специалист</h3><p>Тот же инженерный подход, только вместо чертежа – структура сайта.</p></span>
+					<span class="wrow__tag">профессия</span>
+					<span class="wrow__plus" aria-hidden="true">+</span>
+				</button>
+				<div class="wrow__panel">
+					<div class="wrow__panel-in">
+						<p class="wrow__stamp">рассекречено</p>
+						<ul class="wrow__list">
+							<li>Благодаря технической университетской базе упор делаю на крупные точечные аудиты, а не поверхностный обзор.</li>
+							<li>Технический анализ сайта, UX, сравнение с конкурентами и разбор ниши целиком – в одной связке.</li>
+							<li>Выстраиваю процесс так же, как когда-то выстраивала чертёж – шаг за шагом, с проверкой на каждом этапе.</li>
+						</ul>
+					</div>
+				</div>
+			</article>
+			<article class="wrow" data-open="false">
+				<button class="wrow__head" type="button" aria-expanded="false">
+					<span class="wrow__num">04</span>
+					<span class="wrow__body"><h3>Тимлид SEO-отдела</h3><p>От своих задач – к задачам всей команды.</p></span>
+					<span class="wrow__tag">должность</span>
+					<span class="wrow__plus" aria-hidden="true">+</span>
+				</button>
+				<div class="wrow__panel">
+					<div class="wrow__panel-in">
+						<p class="wrow__stamp">рассекречено</p>
+						<ul class="wrow__list">
+							<li>Планирование и распределение задач внутри отдела.</li>
+							<li>Разбор задач с командой, контроль качества и сроков.</li>
+							<li>Связующее звено между SEO-отделом и остальной командой проекта.</li>
+						</ul>
+					</div>
+				</div>
+			</article>
+		</div>
+
+		<div class="work__exhibits">
+			<p class="wex-label">приложения &middot; чертежи из инженерного прошлого</p>
+			<div class="wex-row">
+				<figure class="wex"><span class="wex__img" style="background-image:url('images/work-vent.png')" aria-hidden="true"></span><figcaption>кронштейн</figcaption></figure>
+				<figure class="wex"><span class="wex__img" style="background-image:url('images/work-frame.png')" aria-hidden="true"></span><figcaption>рама крышной установки</figcaption></figure>
+				<figure class="wex"><span class="wex__img" style="background-image:url('images/work-shaft.png')" aria-hidden="true"></span><figcaption>вал</figcaption></figure>
+				<figure class="wex"><span class="wex__img" style="background-image:url('images/work-gear.png')" aria-hidden="true"></span><figcaption>зубчатое колесо</figcaption></figure>
+				<figure class="wex"><span class="wex__img" style="background-image:url('images/work-pavilion.png')" aria-hidden="true"></span><figcaption>экспозиционный павильон</figcaption></figure>
+			</div>
+		</div>
+
+		<p class="work__tags">техническое SEO &middot; UX/UI в рамках SEO &middot; анализ конкурентов &middot; анализ коммерческих факторов &middot; семантическое ядро &middot; контент-стратегия &middot; линкбилдинг &middot; веб-аналитика &middot; A/B-тестирование &middot; конструирование &middot; проектирование &middot; управление командой &middot; постановка процессов &middot; системное мышление &middot; чертежи &middot; ГОСТ</p>
+	</section>
+
+	<section class="music" id="music">
+		<div class="music-sticky">
+			<span class="p-plate l" aria-hidden="true">плейлист</span>
+			<span class="p-plate" aria-hidden="true">PL. 04 / 06</span>
+			<div class="music-head">
+				<p class="section-index">03 / музыка</p>
+				<h2>Что звучит внутри?</h2>
+			</div>
+			<p class="music-hint">листайте вниз, чтобы пройти плейлист ↓ →</p>
+			<div class="music-track">
+				<!-- общий фильтр-свечение для звёзд (вектор, масштабируется без потери качества) -->
+				<svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs>
+					<filter id="mcs-glow" x="-70%" y="-70%" width="240%" height="240%">
+						<feDropShadow dx="0" dy="0" stdDeviation="3.2" flood-color="#F1E1F9" flood-opacity="0.5"/>
+					</filter>
+				</defs></svg>
+				<!-- Карточка трека = <div class="music-card-wrap"> (обёртка для анимации) + .music-clean-card + звезда в углу.
+				     Для нового трека скопируй весь .music-card-wrap и поменяй: обложку и фото артиста (inline background-image + aria-label),
+				     имя, мета-строку (.music-clean-info small), название, описание, цитату, data-track и data-audio на кнопке, текст в .mcb-label.
+				     Карточки 3–5 пока заглушки (копии Funeral). -->
+
+				<!-- 1. Kai Angel – Funeral -->
+				<div class="music-card-wrap">
+					<article class="music-clean-card">
+						<div class="music-clean-cover" role="img" aria-label="Обложка трека Funeral – Kai Angel" style="background-image:url('images/funeral.jpg')"></div>
+						<div class="music-clean-info">
+							<div class="music-clean-artist">
+								<div class="music-clean-avatar" role="img" aria-label="Фото Kai Angel" style="background-image:url('images/kai_angel.jpg')"></div>
+								<span class="music-clean-name">Kai Angel</span>
+							</div>
+							<small>«MM» ’23 / 2:39 / Dark Trap</small>
+							<h3>FUNERAL</h3>
+							<p>Холодная, тревожная энергия и припев, который невозможно не прокручивать в голове.</p>
+						</div>
+						<div class="music-clean-bottom">
+							<blockquote class="music-clean-quote">«У входа в мою комнату<br>висит призрак невесты.<br>Мне так уютнее<br>и спокойнее, честно.»</blockquote>
+							<button class="music-clean-button" type="button" data-track="FUNERAL" data-audio="audio/funeral.m4a"><span class="mcb-play" aria-hidden="true"></span><span class="mcb-label">FUNERAL на всю ночь</span></button>
+						</div>
+					</article>
+					<span class="music-card-star" aria-hidden="true"><svg viewBox="-25 -25 150 150"><path filter="url(#mcs-glow)" d="M50 0 L61 39 L100 50 L61 61 L50 100 L39 61 L0 50 L39 39 Z"/></svg></span>
+				</div>
+
+				<!-- 2. HOFMANNITA – Это слёзы (Мама).  TODO: положить images/hofmannita-cover.jpg, images/hofmannita.jpg,
+				     audio/eto-slezi.m4a (пока нет) -->
+				<div class="music-card-wrap">
+					<article class="music-clean-card">
+						<div class="music-clean-cover" role="img" aria-label="Обложка трека Это слёзы (Мама) – HOFMANNITA" style="background-image:url('images/eto-slezi.jpg')"></div>
+						<div class="music-clean-info">
+							<div class="music-clean-artist">
+								<div class="music-clean-avatar" role="img" aria-label="Фото HOFMANNITA" style="background-image:url('images/hofmannita.jpg')"></div>
+								<span class="music-clean-name">HOFMANNITA</span>
+							</div>
+							<small>сингл ’26 / 1:39 / Hip-Hop</small>
+							<h3>Это слёзы (Мама)</h3>
+							<p>Исповедь о любви, которая жжётся изнутри: дождь за окном, слёзы и ни секунды покоя.</p>
+						</div>
+						<div class="music-clean-bottom">
+							<blockquote class="music-clean-quote">«Никто не представляет,<br>как люблю я нас двоих»</blockquote>
+							<button class="music-clean-button" type="button" data-track="Это слёзы" data-audio="audio/etoslezi.m4a"><span class="mcb-play" aria-hidden="true"></span><span class="mcb-label">Это слёзы на всю ночь</span></button>
+						</div>
+					</article>
+					<span class="music-card-star" aria-hidden="true"><svg viewBox="-25 -25 150 150"><path filter="url(#mcs-glow)" d="M50 0 L61 39 L100 50 L61 61 L50 100 L39 61 L0 50 L39 39 Z"/></svg></span>
+				</div>
+
+				<!-- 3. сны твоих мёртвых друзей – 1990 (альбом «22.39», 2017; С. Симонов) -->
+				<div class="music-card-wrap">
+					<article class="music-clean-card">
+						<div class="music-clean-cover" role="img" aria-label="Обложка трека 1990 – сны твоих мёртвых друзей" style="background-image:url('images/1990.jpg')"></div>
+						<div class="music-clean-info">
+							<div class="music-clean-artist">
+								<div class="music-clean-avatar" role="img" aria-label="Фото сны твоих мёртвых друзей" style="background-image:url('images/stmd.jpg')"></div>
+								<span class="music-clean-name">сны твоих мёртвых друзей</span>
+							</div>
+							<small>«22.39» ’17 / 3:15 / Post-Punk</small>
+							<h3>1990</h3>
+							<p>Сырой домашний lo-fi: минималистичный бит, меланхоличная гитара и полусонный вокал в реверберации. Светлая грусть и одиночество большого города – свет окон в бетонных многоэтажках, холодный воздух и вспышки воспоминаний о том, что не вернуть.</p>
+						</div>
+						<div class="music-clean-bottom">
+							<blockquote class="music-clean-quote">?</blockquote>
+							<button class="music-clean-button" type="button" data-track="1990" data-audio="audio/1990.m4a"><span class="mcb-play" aria-hidden="true"></span><span class="mcb-label">1990 на всю ночь</span></button>
+						</div>
+					</article>
+					<span class="music-card-star" aria-hidden="true"><svg viewBox="-25 -25 150 150"><path filter="url(#mcs-glow)" d="M50 0 L61 39 L100 50 L61 61 L50 100 L39 61 L0 50 L39 39 Z"/></svg></span>
+				</div>
+
+				<!-- 4. stvrshine – A Platonic Thing -->
+				<div class="music-card-wrap">
+					<article class="music-clean-card">
+						<div class="music-clean-cover" role="img" aria-label="Обложка трека A Platonic Thing – stvrshine" style="background-image:url('images/aplatonicthing.jpg')"></div>
+						<div class="music-clean-info">
+							<div class="music-clean-artist">
+								<div class="music-clean-avatar" role="img" aria-label="Фото stvrshine" style="background-image:url('images/stvrshine.jpg')"></div>
+								<span class="music-clean-name">stvrshine</span>
+							</div>
+							<small>сингл / 1:54 / Hyperpop</small>
+							<h3>A Platonic Thing</h3>
+							<p>Ночь, мессенджер и чувства, которые страшно назвать вслух. Рваный бит поверх нежной мелодии – герой уверяет себя, что это «просто по-дружески».</p>
+						</div>
+						<div class="music-clean-bottom">
+							<blockquote class="music-clean-quote">«It’s just a platonic thing<br>It’s just between two strange minds<br>But with you guess I don’t mind»</blockquote>
+							<button class="music-clean-button" type="button" data-track="A Platonic Thing" data-audio="audio/aplatonicthing.m4a"><span class="mcb-play" aria-hidden="true"></span><span class="mcb-label">A Platonic Thing на всю ночь</span></button>
+						</div>
+					</article>
+					<span class="music-card-star" aria-hidden="true"><svg viewBox="-25 -25 150 150"><path filter="url(#mcs-glow)" d="M50 0 L61 39 L100 50 L61 61 L50 100 L39 61 L0 50 L39 39 Z"/></svg></span>
+				</div>
+
+				<!-- 5. Boulevard Depo (feat. PHARAOH) – Not 4 U (альбом «Sweet Dreams», 2016) -->
+				<div class="music-card-wrap">
+					<article class="music-clean-card">
+						<div class="music-clean-cover" role="img" aria-label="Обложка трека Not 4 U – Boulevard Depo" style="background-image:url('images/not4you.jpg')"></div>
+						<div class="music-clean-info">
+							<div class="music-clean-artist">
+								<div class="music-clean-avatar" role="img" aria-label="Фото Boulevard Depo" style="background-image:url('images/boulevarddepo.jpg')"></div>
+								<span class="music-clean-name">Boulevard Depo</span>
+							</div>
+							<small>«Sweet Dreams» ’16 / 2:16 / Cloud Rap</small>
+							<h3>Not 4 U</h3>
+							<p>Смолистый бас, дым до потолка и холодная ухмылка. «Это не для тебя» – и в этом весь кайф.</p>
+						</div>
+						<div class="music-clean-bottom">
+							<blockquote class="music-clean-quote">«Не существует барьеров,<br>когда нет страха терять.»</blockquote>
+							<button class="music-clean-button" type="button" data-track="Not 4 U" data-audio="audio/not4u.m4a"><span class="mcb-play" aria-hidden="true"></span><span class="mcb-label">Not 4 U на всю ночь</span></button>
+						</div>
+					</article>
+					<span class="music-card-star" aria-hidden="true"><svg viewBox="-25 -25 150 150"><path filter="url(#mcs-glow)" d="M50 0 L61 39 L100 50 L61 61 L50 100 L39 61 L0 50 L39 39 Z"/></svg></span>
+				</div>
+			</div>
+			<button class="music-back" type="button">&#8593; вернуться в начало</button>
+		</div>
+	</section>
+
+	<section class="hobby" id="hobby">
+		<span class="p-plate l" aria-hidden="true">каталог</span>
+		<span class="p-plate" aria-hidden="true">PL. 05 / 06</span>
+		<div class="hobby__head">
+			<p class="sec-index">04 / игры</p>
+			<h2>Что держит меня у экрана?</h2>
+			<p>Ничего общего между ними, кроме того, что во всё это я играю прямо сейчас.</p>
+		</div>
+
+		<div class="game-deck" id="game-deck">
+			<article class="gd-item gd-item--sh2 is-featured" data-game="sh2">
+				<div class="gd-menu">
+					<span class="gd-bg" style="background-image:url('images/sh2-cover.jpg')" aria-hidden="true"></span>
+					<span class="gd-grad" aria-hidden="true"></span>
+					<span class="gd-sigil" aria-hidden="true">&#9678;</span>
+					<img class="gd-cover-logo gd-cover-logo--sh2" src="images/sh2-logo.png" alt="Silent Hill 2">
+					<p class="gd-label">ремейк культового хоррора 2001 года</p>
+					<h3 class="gd-title">Silent Hill 2</h3>
+					<p class="gd-text">Джеймс получает письмо от умершей жены и отправляется в окутанный туманом город Сайлент Хилл, где сталкивается с монстрами – отражениями собственной вины.</p>
+					<span class="gd-hint" aria-hidden="true"><span class="gd-hint__dot"></span><span class="gd-hint__label">нажми, чтобы узнать больше</span></span>
+				</div>
+				<div class="gd-detail">
+					<p class="gd-detail-label">информация об игре</p>
+					<dl class="gd-specs">
+						<div class="gd-specs__genres"><dt>жанры</dt><dd>
+							<span class="gd-genre">психологический хоррор</span><span class="gd-genre">головоломка</span>
+						</dd></div>
+						<div><dt>разработчик</dt><dd>Bloober Team</dd></div>
+						<div><dt>издатель</dt><dd>Konami</dd></div>
+						<div><dt>тип</dt><dd>ремейк</dd></div>
+						<div><dt>год выхода</dt><dd>2024</dd></div>
+						<div><dt>масштаб</dt><dd>AA</dd></div>
+					</dl>
+					<p class="gd-detail-label">галерея</p>
+					<div class="gd-gallery">
+						<button class="gd-gal-arrow gd-gal-arrow--prev" type="button" aria-label="предыдущие кадры">&#8249;</button>
+						<div class="gd-gal-viewport">
+							<div class="gd-gal-track">
+								<span class="gd-shot gd-shot--img" data-img="images/sh/images (3).jpg" style="background-image:url('images/sh/images (3).jpg')" aria-hidden="true"></span>
+								<span class="gd-shot gd-shot--img" data-img="images/sh/images (2).jpg" style="background-image:url('images/sh/images (2).jpg')" aria-hidden="true"></span>
+								<span class="gd-shot gd-shot--img" data-img="images/sh/images.jpg" style="background-image:url('images/sh/images.jpg')" aria-hidden="true"></span>
+								<span class="gd-shot gd-shot--img" data-img="images/sh/sh-thumb-1724052321585.jpg" style="background-image:url('images/sh/sh-thumb-1724052321585.jpg')" aria-hidden="true"></span>
+								<span class="gd-shot gd-shot--img" data-img="images/sh/can-someone-explain-me-the-bliss-ending-please-v0-zhwn4e1l51ge1.webp" style="background-image:url('images/sh/can-someone-explain-me-the-bliss-ending-please-v0-zhwn4e1l51ge1.webp')" aria-hidden="true"></span>
+								<span class="gd-shot gd-shot--img" data-img="images/sh/image.webp" style="background-image:url('images/sh/image.webp')" aria-hidden="true"></span>
+								<span class="gd-shot gd-shot--img" data-img="images/sh/silent-hill-2-remake-avoiding-enemies-survival-horror.webp" style="background-image:url('images/sh/silent-hill-2-remake-avoiding-enemies-survival-horror.webp')" aria-hidden="true"></span>
+							</div>
+						</div>
+						<button class="gd-gal-arrow gd-gal-arrow--next" type="button" aria-label="следующие кадры">&#8250;</button>
+					</div>
+				</div>
+			</article>
+			<article class="gd-item gd-item--hades is-featured" data-game="hades">
+				<div class="gd-menu">
+					<span class="gd-bg" style="background-image:url('images/hades-cover.jpg')" aria-hidden="true"></span>
+					<span class="gd-grad" aria-hidden="true"></span>
+					<span class="gd-sigil" aria-hidden="true">&#9789;</span>
+					<img class="gd-cover-logo" src="images/hades-logo.png" alt="Hades">
+					<p class="gd-label">рогалик о вечном побеге из Подземного царства</p>
+					<h3 class="gd-title">Hades</h3>
+					<p class="gd-text">Рогалик, в котором Загрей раз за разом пытается сбежать из Подземного царства от собственного отца. Каждая смерть продвигает сюжет вперёд, а не откатывает прогресс.</p>
+					<span class="gd-hint" aria-hidden="true"><span class="gd-hint__dot"></span><span class="gd-hint__label">нажми, чтобы узнать больше</span></span>
+				</div>
+				<div class="gd-detail gd-detail--codex">
+					<p class="gd-detail-label">информация об игре</p>
+					<dl class="gd-specs gd-specs--compact">
+						<div class="gd-specs__genres"><dt>жанры</dt><dd>
+							<span class="gd-genre">рогалик</span><span class="gd-genre">экшен</span>
+						</dd></div>
+						<div><dt>разработчик</dt><dd>Supergiant Games</dd></div>
+						<div><dt>издатель</dt><dd>Supergiant Games</dd></div>
+						<div><dt>тип</dt><dd>оригинальная игра</dd></div>
+						<div><dt>год выхода</dt><dd>2020</dd></div>
+						<div><dt>масштаб</dt><dd>инди</dd></div>
+					</dl>
+					<p class="gd-detail-label">кодекс</p>
+					<div class="gd-codex">
+						<div class="gd-codex-wrap">
+							<div class="gd-codex-card gd-codex-card--nyx">
+								<div class="gd-codex-card__face gd-codex-card__face--front">
+									<span class="gd-codex-card__art" style="background-image:url('images/hades-nyx.jpg')" aria-hidden="true"></span>
+									<span class="gd-codex-card__halftone" aria-hidden="true"></span>
+									<span class="gd-codex-card__scrim" aria-hidden="true"></span>
+									<span class="gd-codex-card__flip-hint" aria-hidden="true">&#8635;</span>
+									<p class="gd-codex-card__name">Никта</p>
+									<p class="gd-codex-card__quote">«Тьма была здесь задолго до света».</p>
+								</div>
+								<div class="gd-codex-card__face gd-codex-card__face--back">
+									<span class="gd-codex-card__halftone" aria-hidden="true"></span>
+									<p class="gd-codex-card__name">Никта</p>
+									<p class="gd-codex-card__bio">Никта – изначальная богиня Ночи, старше самих олимпийцев. Она управляет домом Аида в его отсутствие и вырастила Загрея как родного сына, хотя формально приходится ему бабушкой. Мать бессчётных детей – Гипноса, Танатоса, Немезиды и других – и <b>единственная в доме, чьё слово весит больше слова самого Аида</b>.</p>
+								<p class="gd-codex-card__tag">Дар Никты – Зеркало Ночи: постоянная прокачка силы, меткости и удачи между вылазками.</p>
+								</div>
+							</div>
+						</div>
+						<div class="gd-codex-wrap">
+							<div class="gd-codex-card gd-codex-card--chaos">
+								<div class="gd-codex-card__face gd-codex-card__face--front">
+									<span class="gd-codex-card__art" style="background-image:url('images/hades-chaos.jpg')" aria-hidden="true"></span>
+									<span class="gd-codex-card__halftone" aria-hidden="true"></span>
+									<span class="gd-codex-card__scrim" aria-hidden="true"></span>
+									<span class="gd-codex-card__flip-hint" aria-hidden="true">&#8635;</span>
+									<p class="gd-codex-card__name">Хаос</p>
+									<p class="gd-codex-card__quote">«Из меня родилось всё сущее».</p>
+								</div>
+								<div class="gd-codex-card__face gd-codex-card__face--back">
+									<span class="gd-codex-card__halftone" aria-hidden="true"></span>
+									<p class="gd-codex-card__name">Хаос</p>
+									<p class="gd-codex-card__bio">Хаос – первородная сущность, из которой возникло всё сущее, включая самих богов. Встретить его можно за потайными дверями в каждом из четырёх регионов подземного мира. Он предлагает мощный дар, но сперва насылает временное проклятие – с ослабленным телом нужно пережить пару залов. <b>Чем больше доверия заслужено, тем щедрее становятся благословения</b> при следующих встречах.</p>
+								<p class="gd-codex-card__tag">Испытание Хаоса: сначала риск и проклятие, потом – одно из самых сильных благословений в игре.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</article>
+			<article class="gd-item gd-item--stardew is-featured" data-game="stardew">
+				<div class="gd-menu">
+					<span class="gd-bg" style="background-image:url('images/stardew-cover.jpg')" aria-hidden="true"></span>
+					<span class="gd-grad" aria-hidden="true"></span>
+					<span class="gd-sigil" aria-hidden="true">&#10047;</span>
+					<img class="gd-cover-logo" src="images/stardew-logo.png" alt="Stardew Valley">
+					<p class="gd-label">от заброшенного поля до фермы мечты</p>
+					<h3 class="gd-title">Stardew Valley</h3>
+					<p class="gd-text">Ферма-симулятор о городском жителе, который получает в наследство старый участок земли и переезжает в Пеликан-таун. Выращивание урожая, рыбалка, шахты и отношения с соседями – без таймеров и спешки.</p>
+					<span class="gd-hint" aria-hidden="true"><span class="gd-hint__dot"></span><span class="gd-hint__label">нажми, чтобы узнать больше</span></span>
+				</div>
+				<div class="gd-detail gd-detail--pixel">
+					<p class="gd-detail-label">информация об игре</p>
+					<dl class="gd-specs gd-specs--compact">
+						<div class="gd-specs__genres"><dt>жанры</dt><dd>
+							<span class="gd-genre">симулятор фермы</span><span class="gd-genre">инди</span>
+						</dd></div>
+						<div><dt>разработчик</dt><dd>ConcernedApe</dd></div>
+						<div><dt>издатель</dt><dd>ConcernedApe</dd></div>
+						<div><dt>тип</dt><dd>оригинальная игра</dd></div>
+						<div><dt>год выхода</dt><dd>2016</dd></div>
+						<div><dt>масштаб</dt><dd>соло-разработка</dd></div>
+					</dl>
+					<p class="gd-detail-label">галерея</p>
+					<div class="gd-gallery">
+						<button class="gd-gal-arrow gd-gal-arrow--prev" type="button" aria-label="предыдущие кадры">&#8249;</button>
+						<div class="gd-gal-viewport">
+							<div class="gd-gal-track">
+								<span class="gd-shot gd-shot--img" data-img="images/sv-farm.jpg" style="background-image:url('images/sv-farm.jpg')" aria-hidden="true"></span>
+								<span class="gd-shot gd-shot--img" data-img="images/sv-town.jpg" style="background-image:url('images/sv-town.jpg')" aria-hidden="true"></span>
+								<span class="gd-shot gd-shot--img" data-img="images/sv-forest.jpg" style="background-image:url('images/sv-forest.jpg')" aria-hidden="true"></span>
+								<span class="gd-shot gd-shot--img" data-img="images/sv-bay.jpg" style="background-image:url('images/sv-bay.jpg')" aria-hidden="true"></span>
+								<span class="gd-shot gd-shot--img" data-img="images/sv-island-farm.jpg" style="background-image:url('images/sv-island-farm.jpg')" aria-hidden="true"></span>
+								<span class="gd-shot gd-shot--img" data-img="images/sv-island-bay.jpg" style="background-image:url('images/sv-island-bay.jpg')" aria-hidden="true"></span>
+							</div>
+						</div>
+						<button class="gd-gal-arrow gd-gal-arrow--next" type="button" aria-label="следующие кадры">&#8250;</button>
+					</div>
+				</div>
+			</article>
+
+			<article class="gd-item gd-item--dota is-featured" data-game="dota">
+				<div class="gd-menu">
+					<span class="gd-bg" style="background-image:url('images/dota-cover.jpg')" aria-hidden="true"></span>
+					<span class="gd-grad" aria-hidden="true"></span>
+					<span class="gd-sigil" aria-hidden="true">&#10022;</span>
+					<img class="gd-cover-logo gd-cover-logo--dota" src="images/dota-logo.png" alt="Dota 2">
+					<p class="gd-label">партия, где всё решает одна ошибка</p>
+					<h3 class="gd-title">Dota 2</h3>
+					<p class="gd-text">Командная MOBA 5 на 5 с более чем сотней героев, где партия может перевернуться из-за одной ошибки или одного удачного комбо.</p>
+					<span class="gd-hint" aria-hidden="true"><span class="gd-hint__dot"></span><span class="gd-hint__label">нажми, чтобы узнать больше</span></span>
+				</div>
+				<div class="gd-detail gd-detail--heroes">
+					<p class="gd-detail-label">информация об игре</p>
+					<dl class="gd-specs gd-specs--compact">
+						<div class="gd-specs__genres"><dt>жанры</dt><dd>
+							<span class="gd-genre">MOBA</span><span class="gd-genre">киберспорт</span>
+						</dd></div>
+						<div><dt>разработчик</dt><dd>Valve</dd></div>
+						<div><dt>издатель</dt><dd>Valve</dd></div>
+						<div><dt>тип</dt><dd>сиквел мода Warcraft III</dd></div>
+						<div><dt>год выхода</dt><dd>2013</dd></div>
+						<div><dt>масштаб</dt><dd>AAA</dd></div>
+					</dl>
+					<p class="gd-detail-label">любимые герои</p>
+					<div class="gd-heroes">
+						<svg class="gd-hero-link" aria-hidden="true"><path/></svg>
+						<span class="gd-hero-pulse" aria-hidden="true"></span>
+						<div class="gd-hero">
+							<div class="gd-hero__portrait"><video class="gd-hero__portrait-media" src="video/oracul.mp4" autoplay muted playsinline loop preload="auto" aria-hidden="true"></video></div>
+							<p class="gd-hero__name">Оракул</p>
+							<p class="gd-hero__role">поддержка – 5 позиция</p>
+							<p class="gd-hero__text">Мастер предсказаний: заранее спасает союзника от смерти и переворачивает бой одним заклинанием.</p>
+						</div>
+						<div class="gd-hero">
+							<div class="gd-hero__portrait"><video class="gd-hero__portrait-media" src="video/pa.mp4" autoplay muted playsinline loop preload="auto" aria-hidden="true"></video></div>
+							<p class="gd-hero__name">Фантомка</p>
+							<p class="gd-hero__role">керри – 1 позиция</p>
+							<p class="gd-hero__text">Тихий убийца с шансом критического удара в разы больше обычного.</p>
+						</div>
+					</div>
+				</div>
+			</article>
+		</div>
+
+		<div class="gd-lightbox" id="gd-lightbox" aria-hidden="true">
+			<button class="gd-lightbox__nav gd-lightbox__nav--prev" type="button" aria-label="предыдущее фото">&#8249;</button>
+			<img class="gd-lightbox__img" id="gd-lightbox-img" src="" alt="">
+			<button class="gd-lightbox__nav gd-lightbox__nav--next" type="button" aria-label="следующее фото">&#8250;</button>
+			<button class="gd-lightbox__close" type="button" aria-label="закрыть">&times;</button>
+		</div>
+	</section>
+
+	<section class="finale" id="finale">
+		<span class="p-plate" aria-hidden="true">PL. 06 / 06</span>
+		<div class="finale__moon" style="background-image:url('images/moon-big.jpg')" aria-hidden="true"></div>
+		<div class="finale__grad" aria-hidden="true"></div>
+		<blockquote>
+			<q>А что ещё?</q>
+			<footer>KSENIA · MMXXVI · конец</footer>
+		</blockquote>
+	</section>
+</main>
+
+<script>
+	const musicSection = document.querySelector('.music');
+	const musicTrack = document.querySelector('.music-track');
+	const musicCards = [...musicTrack.querySelectorAll('.music-card-wrap')];
+	const musicBack = document.querySelector('.music-back');
+	if (musicBack) {
+		musicBack.addEventListener('click', () => {
+			window.scrollTo({ top: musicSection.offsetTop + 1, behavior: 'smooth' });
+		});
+	}
+
+	// Вертикальная прокрутка страницы в этом блоке двигает ленту карточек по горизонтали.
+	// Карточка в фокусе – крупная и прямая; соседние отъезжают вглубь, наклоняются и гаснут.
+
+	// точка фокуса чуть правее центра экрана – компенсирует заголовок и срез угла карточки
+	const FOCUS_NUDGE = 46;
+	// левый край ленты во вьюпорте без её сдвига (не зависит от transform-ов карточек).
+	// Считаем через смещение внутри позиционированного родителя (offsetParent), а не через
+	// getBoundingClientRect самой ленты – к ней applies transform, и если временно снимать его,
+	// а лента при этом едет с transition:transform, можно поймать кадр посреди перехода и
+	// получить смещённое (неверное) значение. offsetLeft/offsetParent транформом не затрагиваются.
+	let trackBaseLeft = 0;
+	function measureBase() {
+		trackBaseLeft = musicTrack.offsetParent.getBoundingClientRect().left + musicTrack.offsetLeft;
+	}
+
+	// целевой сдвиг ленты считается из скролла напрямую (может дёргаться – скролл события идут
+	// неравномерно, особенно на больших карточках, где даже небольшая прокрутка = большое
+	// перемещение в пикселях); а вот РИСУЕТСЯ лента по currentShift, который каждый кадр плавно
+	// подъезжает к targetShift – так движение остаётся гладким независимо от того, насколько
+	// «рывками» пришли сами scroll-события.
+	let targetShift = 0;
+	let currentShift = 0;
+	let musicRafStarted = false;
+
+	function computeTarget() {
+		if (!musicCards.length) return;
+
+		const scrollSpace = musicSection.offsetHeight - window.innerHeight;
+		// карусель проходит все карточки за первые TAIL прокрутки блока; оставшийся хвост –
+		// последняя карточка просто стоит по центру (иначе она «доезжает» ровно в момент, когда блок уже уходит)
+		const TAIL = 0.85;
+		const rawProgress = Math.min(1, Math.max(0, (window.scrollY - musicSection.offsetTop) / scrollSpace / TAIL));
+
+		// «удержание» на каждой карточке: первые HOLD доли отрезка карточка стоит неподвижно
+		// (полностью в кадре, звезда ровно), потом плавно уезжает к следующей.
+		// Значит и при первом открытии блока первая карточка какое-то время просто стоит.
+		const HOLD = 0.4;
+		const seg = 1 / (musicCards.length - 1);
+		const rawSeg = rawProgress / seg;
+		const idx = Math.min(musicCards.length - 2, Math.floor(rawSeg));
+		let frac = rawSeg - idx;
+		frac = frac <= HOLD ? 0 : (frac - HOLD) / (1 - HOLD);
+		frac = frac * frac * (3 - 2 * frac);            // smoothstep
+		const progress = Math.min(1, (idx + frac) * seg);
+
+		// на последнем треке снизу выезжает кнопка «вернуться в начало»
+		if (musicBack) musicBack.classList.toggle('is-visible', progress >= 0.995);
+
+		const focusX = window.innerWidth / 2 + FOCUS_NUDGE;
+		// натуральный центр карточки во вьюпорте (offsetLeft/offsetWidth не зависят от transform)
+		const naturalCentre = (el) => trackBaseLeft + el.offsetLeft + el.offsetWidth / 2;
+
+		// сдвиг ленты: первая карточка стартует в фокусе, последняя – в фокусе заканчивает.
+		const startShift = focusX - naturalCentre(musicCards[0]);
+		const endShift = focusX - naturalCentre(musicCards[musicCards.length - 1]);
+		targetShift = startShift + (endShift - startShift) * progress;
+
+		if (!musicRafStarted) { musicRafStarted = true; requestAnimationFrame(renderMusic); }
+	}
+
+	function renderMusic() {
+		requestAnimationFrame(renderMusic);
+		// плавно подъезжаем к цели; на самой последней доле пути просто доезжаем ровно –
+		// иначе экспоненциальное сглаживание никогда не долетает точно до нуля
+		const delta = targetShift - currentShift;
+		currentShift += delta * 0.4;
+		if (Math.abs(delta) < 0.4) currentShift = targetShift;
+		// округляем до целого пикселя – иначе карточка в фокусе рендерится в дробной позиции и мылит текст
+		const shift = Math.round(currentShift);
+		musicTrack.style.transform = `translateX(${shift}px)`;
+
+		const focusX = window.innerWidth / 2 + FOCUS_NUDGE;
+		const naturalCentre = (el) => trackBaseLeft + el.offsetLeft + el.offsetWidth / 2;
+		// объём: масштаб + наклон + уход вглубь по знаковому расстоянию до фокуса
+		const falloff = Math.max(360, window.innerWidth * 0.62);
+		musicCards.forEach((wrap) => {
+			const centre = naturalCentre(wrap) + shift;
+			const signed = Math.max(-1, Math.min(1, (centre - focusX) / falloff));
+			const dist = Math.abs(signed);
+			// карточка ровно в фокусе – вообще без transform (плоский слой = чёткий текст),
+			// остальные – объёмный transform (масштаб вниз + наклон + глубина)
+			if (dist < 0.02) {
+				wrap.style.transform = 'none';
+			} else {
+				const scale = (1 - 0.2 * dist).toFixed(3);
+				const rotY = (signed * -16).toFixed(1);
+				const tz = (-110 * dist).toFixed(0);
+				wrap.style.transform = `perspective(1400px) translateZ(${tz}px) rotateY(${rotY}deg) scale(${scale})`;
+			}
+			wrap.style.opacity = (1 - 0.5 * dist).toFixed(3);
+			wrap.classList.toggle('is-active', dist < 0.16);
+
+			// звезда в углу: --f (близость к фокусу) и --spin – всё оформление в CSS.
+			// поворот с сильным easing: у самой карточки-в-фокусе звезда почти стоит на месте,
+			// раскручивается только когда карточка реально едет мимо (середина перехода)
+			const star = wrap.querySelector('.music-card-star');
+			if (star) {
+				const spin = Math.sign(signed) * Math.pow(dist, 2.6) * 260;
+				star.style.setProperty('--f', (1 - dist).toFixed(3));
+				star.style.setProperty('--spin', spin.toFixed(1) + 'deg');
+			}
+		});
+	}
+
+	function moveMusic() { computeTarget(); }
+
+	measureBase();
+	window.addEventListener('scroll', moveMusic, { passive: true });
+	window.addEventListener('resize', () => { measureBase(); moveMusic(); });
+	window.addEventListener('load', () => { measureBase(); moveMusic(); });
+	moveMusic();
+	// пока догружаются картинки/видео выше по странице, её высота продолжает меняться и сдвигает
+	// блок музыки; без этого, если долистать до блока и остановиться раньше, чем всё догрузится,
+	// карточка в фокусе застревает в позиции, посчитанной по ещё не финальной высоте страницы
+	if (window.ResizeObserver) {
+		const musicRO = new ResizeObserver(() => { measureBase(); moveMusic(); });
+		musicRO.observe(document.body);
+	}
+
+	// «Доводчик»: когда прокрутка в этом блоке останавливается между карточками –
+	// плавно подтягиваем к ближайшей, чтобы карточка всегда была полностью раскрыта.
+	// Только для мыши/трекпада; тач листает свободно.
+	if (matchMedia('(pointer: fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+		const N = musicCards.length, seg = 1 / (N - 1), TAIL = 0.85;
+		let settleT = 0, settling = false;
+		function settle() {
+			const space = musicSection.offsetHeight - window.innerHeight;
+			const raw = (window.scrollY - musicSection.offsetTop) / space / TAIL;
+			if (raw <= 0.001 || raw >= 0.999) return;          // не трогаем края / соседние блоки
+			const k = Math.max(0, Math.min(N - 1, Math.round(raw / seg)));
+			const target = Math.round(musicSection.offsetTop + k * seg * space * TAIL);
+			if (Math.abs(window.scrollY - target) < 3) return;
+			settling = true;
+			window.scrollTo({ top: target, behavior: 'smooth' });
+			setTimeout(() => { settling = false; }, 600);
+		}
+		window.addEventListener('scroll', () => {
+			if (settling) return;
+			clearTimeout(settleT);
+			settleT = setTimeout(settle, 140);
+		}, { passive: true });
+	}
+
+	// Подпись кнопки выбирается случайно при каждой загрузке страницы (меняется текст в .mcb-label).
+	// Новая карточка трека: задать data-track и data-audio на .music-clean-button – больше ничего не нужно.
+	const nightLines = [
+		'поставить {t} на всю ночь',
+		'включить {t} до рассвета',
+		'слушать {t}, пока не взойдёт солнце',
+		'поставить {t} на ночной репит',
+		'слушать {t} в наушниках до утра',
+		'включить {t}, когда все спят',
+		'слушать {t} под фонарями',
+		'слушать {t} до последней звезды',
+		'врубить {t} посреди ночи',
+		'поставить {t} и выключить свет',
+	];
+
+	document.querySelectorAll('.music-clean-button').forEach((button) => {
+		const track = button.dataset.track || 'трек';
+		const label = button.querySelector('.mcb-label');
+		// имя трека в подписи – в отдельном span, чтобы подсветить акцентным цветом; сама фраза
+		// выбирается один раз при загрузке и переиспользуется, чтобы при паузе/восстановлении
+		// подпись возвращалась к тому же тексту, а не подменялась на случайный другой
+		const idleLine = nightLines[Math.floor(Math.random() * nightLines.length)]
+			.replace('{t}', '<span class="mcb-t">' + track + '</span>');
+		label.innerHTML = idleLine;
+
+		// Постоянная ссылка на аудио: если создавать new Audio() прямо в обработчике и никуда не сохранять,
+		// сборщик мусора может уничтожить объект сразу после play() – и звук обрывается / вообще не слышен.
+		const audio = new Audio(button.dataset.audio);
+		audio.preload = 'none';
+
+		audio.addEventListener('ended', () => {
+			button.classList.remove('is-playing');
+			label.innerHTML = idleLine;
+		});
+
+		button.addEventListener('click', () => {
+			// уже играет – второй клик ставит на паузу (раньше кнопка на этом моменте
+			// получала атрибут disabled, из-за чего у disabled-кнопки клики вообще
+			// переставали доходить до обработчика, и поставить трек на паузу было нельзя)
+			if (!audio.paused) {
+				audio.pause();
+				button.classList.remove('is-playing');
+				label.innerHTML = idleLine;
+				return;
+			}
+			try { if (audio.ended) audio.currentTime = 0; } catch (e) {}
+			const p = audio.play();
+			if (!p) return;                 // очень старые браузеры: play() без промиса
+			p.then(() => {
+				label.innerHTML = '<span class="mcb-t">' + track + '</span> звучит';
+				button.classList.add('is-playing');
+			}).catch((err) => {
+				label.textContent = 'не вышло – тапни ещё';
+				console.warn('audio play failed:', err && err.name, err && err.message);
+			});
+		});
+	});
+
+	/* ================= остальной сайт ================= */
+	const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+	/* --- курсор-глаз (только hover-устройства) --- */
+	if (matchMedia('(hover: hover) and (pointer: fine)').matches && !reduce) {
+		document.documentElement.classList.add('has-cursor');
+		document.body.classList.add('has-cursor');
+		const cur = document.querySelector('.cursor');
+		let cx = innerWidth / 2, cy = innerHeight / 2, tx = cx, ty = cy;
+		addEventListener('pointermove', (e) => {
+			tx = e.clientX; ty = e.clientY;
+			// «ссылочный» курсор (маленькая точка) – везде, где клик что-то переключает/открывает;
+			// «медийный» (большой кружок) – только там, где под курсором реально фото для просмотра
+			const linkHit = e.target.closest('a, button, .gd-item:not(.is-expanded), .gd-item.is-expanded .gd-menu, .gd-codex-card, .wrow');
+			const mediaHit = !linkHit && e.target.closest('.gd-shot--img, .about__frame');
+			document.body.classList.toggle('c-link', !!linkHit);
+			document.body.classList.toggle('c-media', !!mediaHit);
+			// линза в hero
+			const hero = e.target.closest('.hero');
+			if (hero) {
+				const r = hero.getBoundingClientRect();
+				hero.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+				hero.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+			}
+		}, { passive: true });
+		(function loop() {
+			cx += (tx - cx) * 0.22; cy += (ty - cy) * 0.22;
+			cur.style.transform = `translate(${cx}px, ${cy}px) translate(-50%,-50%)`;
+			requestAnimationFrame(loop);
+		})();
+	}
+
+	/* --- лунный индикатор: фаза = прогресс прокрутки страницы --- */
+	const moonImg = document.getElementById('moondial-img');
+	const MOON_N = 18;
+	let moonCur = -1;
+	function updateMoon() {
+		const max = document.documentElement.scrollHeight - innerHeight;
+		const p = max > 0 ? scrollY / max : 0;
+		const i = Math.min(MOON_N, Math.max(1, Math.round(p * (MOON_N - 1)) + 1));
+		if (i !== moonCur) { moonCur = i; moonImg.src = 'images/moon/m' + String(i).padStart(2, '0') + '.jpg'; }
+	}
+	addEventListener('scroll', updateMoon, { passive: true });
+	updateMoon();
+
+	/* --- 02 работа: приложения — колесо мыши над лентой крутит её вбок, как ползунок --- */
+	const wexRow = document.querySelector('.wex-row');
+	if (wexRow) {
+		wexRow.addEventListener('wheel', (e) => {
+			if (wexRow.scrollWidth <= wexRow.clientWidth) return;   // крутить нечего – отдаём скролл странице
+			e.preventDefault();
+			wexRow.scrollLeft += e.deltaY;
+		}, { passive: false });
+
+		// перетаскивание мышью – колесо срабатывает не на всех устройствах одинаково надёжно,
+		// а тащить ленту за картинку интуитивно понятно и работает всегда
+		let dragging = false, dragStartX = 0, dragStartScroll = 0, dragMoved = false;
+		wexRow.addEventListener('pointerdown', (e) => {
+			if (wexRow.scrollWidth <= wexRow.clientWidth) return;
+			dragging = true;
+			dragMoved = false;
+			dragStartX = e.clientX;
+			dragStartScroll = wexRow.scrollLeft;
+			wexRow.classList.add('is-dragging');
+			wexRow.setPointerCapture(e.pointerId);
+		});
+		wexRow.addEventListener('pointermove', (e) => {
+			if (!dragging) return;
+			const dx = e.clientX - dragStartX;
+			if (Math.abs(dx) > 4) dragMoved = true;
+			wexRow.scrollLeft = dragStartScroll - dx;
+		});
+		const endDrag = (e) => {
+			if (!dragging) return;
+			dragging = false;
+			wexRow.classList.remove('is-dragging');
+			// клик по картинке после реального перетаскивания не нужен – это просто отпускание ленты
+			if (dragMoved) {
+				const suppressClick = (ce) => { ce.stopPropagation(); wexRow.removeEventListener('click', suppressClick, true); };
+				wexRow.addEventListener('click', suppressClick, true);
+			}
+		};
+		wexRow.addEventListener('pointerup', endDrag);
+		wexRow.addEventListener('pointercancel', endDrag);
+	}
+
+	/* --- 02 работа: строки-досье раскрываются по клику --- */
+	document.querySelectorAll('.wrow__head').forEach((btn) => {
+		btn.addEventListener('click', () => {
+			const row = btn.closest('.wrow');
+			const open = row.getAttribute('data-open') === 'true';
+			row.setAttribute('data-open', open ? 'false' : 'true');
+			btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+		});
+	});
+
+	/* --- hero: смена кикера --- */
+	const kickerEl = document.getElementById('hero-kicker');
+	if (kickerEl) {
+		const kickers = ['дальше по наитию', 'я уже знаю, чем кончится', 'решка тоже ответ', 'смотрю в оба, вижу третьим', 'свет выключен, всё включено'];
+		let ki = 0;
+		if (!reduce) setInterval(() => {
+			ki = (ki + 1) % kickers.length;
+			kickerEl.style.opacity = '0';
+			setTimeout(() => { kickerEl.textContent = kickers[ki]; kickerEl.style.opacity = '1'; }, 260);
+		}, 3600);
+		kickerEl.style.transition = 'opacity .26s ease';
+	}
+
+	/* --- 01 обо мне: заголовок «расшифровывается» из случайных знаков, фото открывается сканом ---
+	   повторные запуски (при каждом возврате в кадр) не должны накладываться друг на друга –
+	   у каждого запуска свой «токен», старые прерываются, как только стартует новый */
+	function glitchReveal(el) {
+		if (reduce || !el) return;
+		if (!el.dataset.finalText) el.dataset.finalText = el.textContent;
+		const final = el.dataset.finalText;
+		const len = final.length;
+		const glyphs = 'АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯ*+×◇※#%&';
+		const dur = 750;
+		const myToken = (el._glitchToken = (el._glitchToken || 0) + 1);
+		// фиксируем размер блока по «чистому» финальному тексту – иначе смена ширины
+		// случайных символов туда-сюда двигает всю вёрстку под заголовком
+		el.textContent = final;
+		const rect = el.getBoundingClientRect();
+		el.style.width = rect.width + 'px';
+		el.style.height = rect.height + 'px';
+		el.style.overflow = 'hidden';
+		const t0 = performance.now();
+		(function frame(now) {
+			if (el._glitchToken !== myToken) return;   // отменено более новым запуском
+			const t = Math.min(1, (now - t0) / dur);
+			const locked = Math.floor(t * len);
+			let out = '';
+			for (let i = 0; i < len; i++) {
+				const ch = final[i];
+				out += (ch === ' ' || i < locked) ? ch : glyphs[Math.floor(Math.random() * glyphs.length)];
+			}
+			el.textContent = out;
+			if (t < 1) { requestAnimationFrame(frame); return; }
+			el.textContent = final;
+			el.style.width = '';
+			el.style.height = '';
+			el.style.overflow = '';
+		})(t0);
+	}
+	/* фото — автогалерея: следующий кадр каждый раз «сканируется» сверху вниз поверх предыдущего,
+	   та же печатная тема, что и у первого открытия фото (не просто плавное растворение) */
+	const asImgs = document.querySelectorAll('.as-photo__img');
+	const asPhoto = document.querySelector('.as-photo');
+	function asWipeIn(idx) {
+		const el = asImgs[idx];
+		if (!el) return;
+		el.classList.remove('wiping'); void el.offsetWidth;   // сброс, чтобы анимация могла проиграться заново
+		el.classList.add('wiping');
+		if (asPhoto) { asPhoto.classList.remove('wipe'); void asPhoto.offsetWidth; asPhoto.classList.add('wipe'); }
+		const onEnd = () => {
+			el.removeEventListener('animationend', onEnd);
+			el.classList.remove('wiping');
+			el.classList.add('is-shown');
+			asImgs.forEach((im, i) => { if (i !== idx) im.classList.remove('is-shown'); });
+		};
+		el.addEventListener('animationend', onEnd);
+	}
+	if (asImgs.length > 1 && !reduce) {
+		let asIdx = 0;
+		setInterval(() => { asIdx = (asIdx + 1) % asImgs.length; asWipeIn(asIdx); }, 4200);
+	}
+
+	/* текст виден всегда (см. CSS); .wipe один раз проигрывает фейд, заголовок расшифровывается заново при каждом возврате в кадр */
+	const asText = document.querySelector('.as-text');
+	const abTitle = document.querySelector('.as-text h2');
+	if (asText && !reduce) {
+		const textIO = new IntersectionObserver((entries) => {
+			entries.forEach((en) => {
+				if (!en.isIntersecting) return;
+				en.target.classList.add('wipe');
+				if (abTitle) { try { glitchReveal(abTitle); } catch (e) {} }
+			});
+		}, { threshold: 0.3 });
+		textIO.observe(asText);
+	}
+
+	/* --- 02 работа: числа-вероятности тикают при входе в кадр --- */
+	const io = new IntersectionObserver((entries) => {
+		entries.forEach((en) => {
+			if (!en.isIntersecting) return;
+			const b = en.target;
+			const to = +b.dataset.count, suf = b.dataset.suffix || '';
+			if (reduce) { b.textContent = to + suf; io.unobserve(b); return; }
+			const t0 = performance.now(), dur = 900;
+			(function step(t) {
+				const k = Math.min(1, (t - t0) / dur);
+				b.textContent = Math.round(to * (k * (2 - k))) + suf;   // ease-out
+				if (k < 1) requestAnimationFrame(step);
+			})(t0);
+			io.unobserve(b);
+		});
+	}, { threshold: 0.6 });
+	document.querySelectorAll('.wrow__odds b[data-count]').forEach((b) => io.observe(b));
+
+	/* --- 04 игры: клик по маленькой обложке делает её «большим экраном»,
+	   клик по большому экрану раскрывает его книжкой (меню слева + инфо/галерея справа).
+	   FLIP: карточки, которые при этом сдвигаются, плавно доезжают до нового места,
+	   а не прыгают – сама раскрывающаяся карточка растёт обычным CSS-переходом. --- */
+	const gameDeck = document.getElementById('game-deck');
+	if (gameDeck) {
+		const gdItems = [...gameDeck.querySelectorAll('.gd-item')];
+		function flipDeck(change) {
+			const before = gdItems.map((el) => el.getBoundingClientRect());
+			change();
+			const after = gdItems.map((el) => el.getBoundingClientRect());
+			gdItems.forEach((el, i) => {
+				const dx = before[i].left - after[i].left;
+				const dy = before[i].top - after[i].top;
+				if (Math.abs(dx) < 1 && Math.abs(dy) < 1) return;
+				el.style.transition = 'none';
+				el.style.transform = `translate(${dx}px,${dy}px)`;
+				requestAnimationFrame(() => {
+					el.style.transition = 'transform .5s cubic-bezier(.2,.8,.2,1)';
+					el.style.transform = '';
+				});
+			});
+		}
+		/* дота: волнистая нить между портретами двух героев + бегущий по ней импульс –
+		   рисуется по фактическим координатам портретов, чтобы совпадать с их центром при любой ширине */
+		function layoutHeroLinks() {
+			document.querySelectorAll('.gd-heroes').forEach((wrap) => {
+				const item = wrap.closest('.gd-item');
+				if (!item || !item.classList.contains('is-expanded')) return;
+				const heroes = wrap.querySelectorAll('.gd-hero');
+				if (heroes.length < 2) return;
+				const svg = wrap.querySelector('.gd-hero-link');
+				const path = svg.querySelector('path');
+				const pulse = wrap.querySelector('.gd-hero-pulse');
+				const wr = wrap.getBoundingClientRect();
+				const p1 = heroes[0].querySelector('.gd-hero__portrait').getBoundingClientRect();
+				const p2 = heroes[1].querySelector('.gd-hero__portrait').getBoundingClientRect();
+				/* нить идёт строго от одного героя к другому – от края его портрета до края портрета соседа */
+				const x1 = p1.right - wr.left, y1 = p1.top - wr.top + p1.height / 2;
+				const x2 = p2.left - wr.left, y2 = p2.top - wr.top + p2.height / 2;
+				const dx = (x2 - x1) / 2;
+				const amp = 18;
+				const d = `M ${x1} ${y1} C ${x1 + dx} ${y1 - amp}, ${x2 - dx} ${y2 + amp}, ${x2} ${y2}`;
+				svg.setAttribute('width', wr.width);
+				svg.setAttribute('height', wr.height);
+				path.setAttribute('d', d);
+				pulse.style.offsetPath = `path('${d}')`;
+			});
+		}
+		/* каждая игра сразу большим полноценным блоком – промежуточного «маленького» состояния больше нет,
+		   клик по блоку просто раскрывает его книжкой, клик по меню слева сворачивает обратно.
+		   Заголовок/текст при этом не пытаются плавно "переехать" на новый размер – при одновременном
+		   изменении и font-size, и ширины колонки переносы строк скачут некрасиво. Вместо этого текст
+		   быстро гаснет перед переразмеркой и мягко проявляется уже на новом месте/размере. */
+		function resizeMenuText(item, change) {
+			const menu = item.querySelector('.gd-menu');
+			menu.classList.add('is-resizing');
+			flipDeck(change);
+			setTimeout(() => menu.classList.remove('is-resizing'), 520);
+		}
+		/* высота карточки фиксируется ЗАРАНЕЕ, под контент её раскрытого состояния (текст, характеристики,
+		   галерея) – а не пересчитывается в момент клика. Иначе при раскрытии карточка сама немного
+		   подрастает (раскрытому контенту не хватало места в изначальные 74vh), и это видно как лишний
+		   скачок размера поверх анимации книжки. Раз высота известна заранее, клик её больше не трогает. */
+		function fitCardHeight(item) {
+			const detail = item.querySelector('.gd-detail');
+			const floor = window.innerHeight * 0.74;
+			let needed = floor;
+			if (detail) {
+				const wasExpanded = item.classList.contains('is-expanded');
+				if (!wasExpanded) item.classList.add('is-expanded');
+				needed = Math.max(floor, detail.scrollHeight + 10);
+				if (!wasExpanded) item.classList.remove('is-expanded');
+			}
+			item.style.minHeight = needed + 'px';
+		}
+		gdItems.forEach((item) => {
+			item.addEventListener('click', (e) => {
+				if (e.target.closest('.gd-shot, .gd-lightbox')) return;
+				if (item.classList.contains('is-expanded')) {
+					if (e.target.closest('.gd-menu')) resizeMenuText(item, () => item.classList.remove('is-expanded'));
+				} else {
+					resizeMenuText(item, () => item.classList.add('is-expanded'));
+				}
+			});
+		});
+		/* галерея внутри раскрытой карточки: слайдер на 2 кадра целиком за раз, никакого обрезания */
+		const galleries = [...gameDeck.querySelectorAll('.gd-gallery')].map((gal) => {
+			const viewport = gal.querySelector('.gd-gal-viewport');
+			const track = gal.querySelector('.gd-gal-track');
+			const shots = [...track.querySelectorAll('.gd-shot')];
+			const prevBtn = gal.querySelector('.gd-gal-arrow--prev');
+			const nextBtn = gal.querySelector('.gd-gal-arrow--next');
+			const perPage = 2;
+			const pages = Math.max(1, Math.ceil(shots.length / perPage));
+			let page = 0;
+			function layout(instant) {
+				const vw = viewport.clientWidth;
+				const gap = 14;
+				const itemW = (vw - gap * (perPage - 1)) / perPage;
+				shots.forEach((s) => { s.style.width = itemW + 'px'; });
+				if (instant) track.style.transition = 'none';
+				track.style.transform = `translateX(${-page * vw}px)`;
+				if (instant) requestAnimationFrame(() => { track.style.transition = ''; });
+				prevBtn.disabled = page === 0;
+				nextBtn.disabled = page >= pages - 1;
+			}
+			prevBtn.addEventListener('click', (e) => { e.stopPropagation(); page = Math.max(0, page - 1); layout(); });
+			nextBtn.addEventListener('click', (e) => { e.stopPropagation(); page = Math.min(pages - 1, page + 1); layout(); });
+			layout(true);
+			return { layout: () => layout(true) };
+		});
+		window.addEventListener('resize', () => { galleries.forEach((g) => g.layout()); layoutHeroLinks(); gdItems.forEach(fitCardHeight); });
+		/* лайтбокс: клик по кадру открывает именно его, по размеру картинки, с пролистыванием стрелками/клавишами */
+		const gdLightbox = document.getElementById('gd-lightbox');
+		const gdLightboxImg = document.getElementById('gd-lightbox-img');
+		if (gdLightbox && gdLightboxImg) {
+			let gdGalleryUrls = [];
+			let gdGalleryIdx = 0;
+			function showLightbox(i) {
+				gdGalleryIdx = (i + gdGalleryUrls.length) % gdGalleryUrls.length;
+				gdLightboxImg.src = gdGalleryUrls[gdGalleryIdx];
+			}
+			gameDeck.querySelectorAll('.gd-shot--img').forEach((shot) => {
+				shot.addEventListener('click', (e) => {
+					e.stopPropagation();
+					gdGalleryUrls = [...shot.closest('.gd-gallery').querySelectorAll('.gd-shot--img')].map((s) => s.dataset.img);
+					showLightbox(gdGalleryUrls.indexOf(shot.dataset.img));
+					gdLightbox.classList.add('is-open');
+				});
+			});
+			gdLightbox.querySelector('.gd-lightbox__nav--prev').addEventListener('click', (e) => { e.stopPropagation(); showLightbox(gdGalleryIdx - 1); });
+			gdLightbox.querySelector('.gd-lightbox__nav--next').addEventListener('click', (e) => { e.stopPropagation(); showLightbox(gdGalleryIdx + 1); });
+			gdLightbox.querySelector('.gd-lightbox__close').addEventListener('click', () => gdLightbox.classList.remove('is-open'));
+			gdLightbox.addEventListener('click', (e) => { if (e.target === gdLightbox) gdLightbox.classList.remove('is-open'); });
+			document.addEventListener('keydown', (e) => {
+				if (!gdLightbox.classList.contains('is-open')) return;
+				if (e.key === 'Escape') gdLightbox.classList.remove('is-open');
+				if (e.key === 'ArrowLeft') showLightbox(gdGalleryIdx - 1);
+				if (e.key === 'ArrowRight') showLightbox(gdGalleryIdx + 1);
+			});
+		}
+		/* hades: клик по карточке персонажа переворачивает её – на обратной стороне текст про него */
+		gameDeck.querySelectorAll('.gd-codex-card').forEach((card) => {
+			card.addEventListener('click', (e) => {
+				e.stopPropagation();
+				card.classList.toggle('is-flipped');
+			});
+		});
+		/* при раскрытии/сворачивании карточки панель меняет ширину – пересчитать слайдеры галерей
+		   после того, как доедет анимация (сама карточка при этом фиксированного размера, не меняется) */
+		gdItems.forEach((item) => {
+			item.addEventListener('click', () => setTimeout(() => {
+				galleries.forEach((g) => g.layout());
+				layoutHeroLinks();
+			}, 520));
+		});
+		gdItems.forEach(fitCardHeight);
+	}
+/* --- видео в кадре: играем только когда видно (перф) --- */
+	document.querySelectorAll('video:not(#hv):not(.gd-hero__portrait-media)').forEach((v) => {
+		const vio = new IntersectionObserver((e) => {
+			e[0].isIntersecting ? v.play().catch(() => {}) : v.pause();
+		}, { threshold: 0.1 });
+		vio.observe(v);
+	});
+
+	/* --- видео туда-обратно, без рывка на стыке (герой ролик боится: играет вперёд до конца, потом сам отматывает назад) --- */
+	function boomerangVideo(v) {
+		if (!v || reduce) return;
+		let dir = 1, last = 0, visible = true;
+		function frame(now) {
+			const dt = last ? Math.min(0.05, (now - last) / 1000) : 0.016;
+			last = now;
+			if (visible) {
+				if (dir === 1) {
+					if (v.duration && v.currentTime >= v.duration - 0.12) { dir = -1; v.pause(); }
+				} else {
+					v.currentTime = Math.max(0, v.currentTime - dt);
+					if (v.currentTime <= 0.04) { dir = 1; v.play().catch(() => {}); }
+				}
+			}
+			requestAnimationFrame(frame);
+		}
+		const start = () => { v.play().catch(() => {}); requestAnimationFrame(frame); };
+		if (v.readyState >= 1) start(); else v.addEventListener('loadedmetadata', start, { once: true });
+		new IntersectionObserver((e) => {
+			visible = e[0].isIntersecting;
+			if (visible && dir === 1) v.play().catch(() => {}); else v.pause();
+		}, { threshold: 0.05 }).observe(v);
+	}
+	boomerangVideo(document.getElementById('hv'));
+	document.querySelectorAll('.gd-hero__portrait-media').forEach(boomerangVideo);
+</script>
+</body>
+</html>
