@@ -1,0 +1,22 @@
+<!doctype html><meta charset="utf-8"><body style="background:#111">
+<script>
+window.frames_out = {};
+var files = ['clip1.mp4','clip2.mp4','clip3.mp4','clip4.mp4','clip5.mp4'];
+var done = 0;
+files.forEach(function(f){
+  var v = document.createElement('video');
+  v.src = 'video/' + f; v.muted = true; v.playsInline = true; v.crossOrigin = 'anonymous'; v.preload = 'auto';
+  document.body.appendChild(v);
+  v.addEventListener('loadeddata', function(){ v.currentTime = Math.min(2, v.duration * 0.45); });
+  v.addEventListener('seeked', function(){
+    if (v.dataset.captured) return; v.dataset.captured = '1';
+    var s = 360 / Math.max(v.videoWidth, v.videoHeight);
+    var cw = Math.round(v.videoWidth * s), ch = Math.round(v.videoHeight * s);
+    var cv = document.createElement('canvas'); cv.width = cw; cv.height = ch;
+    cv.getContext('2d').drawImage(v, 0, 0, cw, ch);
+    try { window.frames_out[f] = { url: cv.toDataURL('image/jpeg', 0.8), w: v.videoWidth, h: v.videoHeight, dur: +v.duration.toFixed(1) }; }
+    catch (e) { window.frames_out[f] = { err: String(e), w: v.videoWidth, h: v.videoHeight }; }
+    done++; if (done >= files.length) window.__ready = 1;
+  });
+});
+</script>
